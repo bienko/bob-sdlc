@@ -1,0 +1,1292 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GitHub SDLC Automation with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../evolve-1/">
+      
+      
+        <link rel="next" href="../evolve-3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.2 Implementing a feature request - GitHub SDLC Automation with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementing-a-feature-request" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-header__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub SDLC Automation with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.2 Implementing a feature request
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-nav__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    GitHub SDLC Automation with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup and registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Planning and scaffolding the application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Building and validating the dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Evolve
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Evolve
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Publishing to GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Implementing a feature request
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Implementing a feature request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-implementing-a-feature-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Implementing a feature request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-reviewing-the-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Reviewing the enhancement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Preparing a pull request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-implementing-a-feature-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Implementing a feature request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-reviewing-the-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Reviewing the enhancement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>PART 2 | EVOLVE</strong></p>
+<h1 id="implementing-a-feature-request"><strong>IMPLEMENTING A FEATURE REQUEST</strong></h1>
+<hr>
+<h2 id="i-why-this-matters"><strong>i. Why this matters</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/6%20Implementing%20a%20Feature%20Request%20%5BBob%20SDLC%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Implementing a Feature Request</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCMhX3Cq8hmQ7GFGjCWqVgjX8TDP" target="_blank">[2 min]</a></strong></p>
+</div>
+<p><strong>This module is the central demonstration of the lab.</strong> All of your work prior to this stage— the plan, the scaffold, the dashboards, the push to GitHub —has been preparation for the next steps. Now a real enhancement request exists as a GitHub issue, and the question that this hands-on lab originally posed will be answered: <em>can IBM Bob take a repository enhancement request and convert it into working, validated implementation?</em></p>
+<p>In this module, you will use IBM Bob to fetch and analyze the GitHub issue from the previous module, define the acceptance criteria, identify the required UI, state, and data service changes, implement the chart for a company selected by the user, and validate the result, all without disturbing the existing dashboards for IBM and its competitors.</p>
+<div class="admonition warning">
+<p>The enhancement request stays fixed throughout this module: users can enter or select a company or ticker, the app resolves data for it, a new graph renders alongside the existing dashboards, and invalid symbols produce a clear message to the user.</p>
+</div>
+<p>Pay attention to how Bob grounds each phase in repository context (the issue text, the existing service layer, the company registry) rather than generating an isolated feature in a vacuum.</p>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>The requirements gate ahead is the plan-approval discipline of <strong>Module 2 | Delegate</strong>, now applied to work that arrives from <em>outside</em> the conversation. A four-bullet GitHub issue goes in; numbered acceptance criteria — each with its verification method attached — come out, and nothing is implemented until you agree to the scope. The pattern is unchanged from the first time you practiced it: your judgment governs the branch points, and Bob works autonomously between them.</p>
+</div>
+<h2 id="ii-implementing-a-feature-request"><strong>ii. Implementing a feature request</strong></h2>
+<p><strong>You will progress through this module via five actions:</strong> create the branch the enhancement will travel on, ask Bob to analyze the requested scope and approve it at the requirements gate, ask Bob to implement the enhancement and approve its subtasks, run the validation gate, and verify the result in the browser. This mirrors the arc of a real delivery cycle, from requirements through development to testing, compressed into a single working session.</p>
+<hr>
+<ol>
+<li>
+<p>Every enhancement gets its own branch. Open a <strong>new Terminal</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-grave">`</kbd></span>) within the Bob IDE and create the branch this feature will travel on, following the naming convention from the previous module:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Create and switch to the enhancement branch
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git checkout -b feature/user-selected-company-chart
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># Push the branch to GitHub so it exists on the remote
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git push -u origin feature/user-selected-company-chart
+</code></pre></div>
+<p>Confirm with <code>git branch</code> that <code>feature/user-selected-company-chart</code> is now the active branch. All of the implementation work in this module lands here, never on <code>main</code>.</p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>With <strong>Agent mode</strong> active, ask Bob to fetch and analyze the enhancement request. </p>
+<ul>
+<li>Copy and paste the following prompt into the <strong>Agentic Sidebar</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Fetch the GitHub issue or pull request context requesting a new graph driven by a company selected by the user. Analyze the requested enhancement, define the likely acceptance criteria, identify the required UI, state, and data service changes, and explain how to implement the feature without breaking the existing dashboards that compare IBM against its competitors.
+</code></pre></div>
+<ul>
+<li>Press <strong>Send</strong> (or hit <span class="keys"><kbd class="key-enter">Enter</kbd></span>) to have Bob begin grounding the analysis in real code</li>
+<li>Bob will pause for approval before its first tool call, such as a read-only listing like <code>find finance-app/src -type f | sort</code></li>
+<li>Click <strong>Approve once</strong></li>
+<li>Bob resolves the request from repository context, restates it in engineering terms, and produces a <strong>Todo List</strong> that plans the work end to end</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>SUB-TASK</th>
+<th>OBJECTIVES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sub-Task 1</strong></td>
+<td>Add <code>customSymbol</code> and <code>setCustomSymbol</code> to <code>dashboardStore</code></td>
+</tr>
+<tr>
+<td><strong>Sub-Task 2</strong></td>
+<td>Add a <code>useCustomSymbolData</code> hook to <code>useMarketData</code></td>
+</tr>
+<tr>
+<td><strong>Sub-Task 3</strong></td>
+<td>Build the <code>CompanySelector</code> component and its CSS module</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 4</strong></td>
+<td>Build the <code>CustomSymbolPanel</code> component and its CSS module</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 5</strong></td>
+<td>Wire <code>CompanySelector</code> and <code>CustomSymbolPanel</code> into the dashboard page</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 6</strong></td>
+<td>Write tests for the store, the selector, and the panel</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 7</strong></td>
+<td>Add a mock data entry for the custom symbol, for example <code>NVDA</code></td>
+</tr>
+<tr>
+<td><strong>Sub-Task 8</strong></td>
+<td>Run <code>npm run validate</code> and confirm zero warnings with every test passing</td>
+</tr>
+</tbody>
+</table>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4d8b48fe-2d2f-4ef4-a124-6adc041e64f9/user_cropped_screenshot_ea07a9bb318f4c40a12eccfc8d245864_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4d8b48fe-2d2f-4ef4-a124-6adc041e64f9/user_cropped_screenshot_ea07a9bb318f4c40a12eccfc8d245864_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/be1ea535-02e9-48ee-88d2-d64bb5b0a519/sps-redacted-e9b7d998400e43f6b3eebf6c9f664f17_af3e14bf998b4a999faad99d34ad6b72_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/be1ea535-02e9-48ee-88d2-d64bb5b0a519/sps-redacted-e9b7d998400e43f6b3eebf6c9f664f17_af3e14bf998b4a999faad99d34ad6b72_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>
+Alongside the plan, Bob delivers the analysis itself as a report: <strong>Feature Request Analysis — User-Selected Company Graph</strong></p>
+<ul>
+<li>Click <strong>Open</strong> to read it</li>
+<li>Notice that the issue asked for four things and Bob derived nine, each with a verification method attached</li>
+<li>Scroll to the end of Bob's response for the impact map and the non-breaking guarantee</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0d87fc01-e45b-468d-b97b-d056bdc16d63/sps-redacted-b23393f1189947248ce5d90fd7818dc3_f3465117873e4e2189192f36136ecc3e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0d87fc01-e45b-468d-b97b-d056bdc16d63/sps-redacted-b23393f1189947248ce5d90fd7818dc3_f3465117873e4e2189192f36136ecc3e_text_export.jpeg" alt="" width="600"></a>
+</p>
+<div class="admonition warning">
+<p><strong>This report is the requirements gate.</strong> It plays the same role the implementation plan played in <em>Part 1</em>: scope is agreed before a line of code is written. The report is tagged <strong>Enhancement</strong> and <strong>Non-breaking</strong>, names the branch it targets, restates the business request, and then does the thing that matters most, turning a four-bullet issue into numbered acceptance criteria that each say how they will be proven:</p>
+</div>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>CRITERION</th>
+<th>VERIFIABLE BY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AC-1</td>
+<td>A text input accepts any 1–5 letter uppercase ticker symbol</td>
+<td>Integration test, valid input calls <code>onSubmit</code></td>
+</tr>
+<tr>
+<td>AC-2</td>
+<td>The input is validated before fetch; empty or non-alpha strings show an inline error</td>
+<td>Integration test, submitting empty or <code>IBM1</code> shows an alert</td>
+</tr>
+<tr>
+<td>AC-3</td>
+<td>While data is loading a spinner is shown inside the new panel</td>
+<td>Integration test, mock returns <code>isLoading: true</code></td>
+</tr>
+<tr>
+<td>AC-4</td>
+<td>If the symbol is unknown or the fetch fails, a clear error message is shown</td>
+<td>Integration test, mock returns <code>isError: true</code> or <code>quote: null</code></td>
+</tr>
+<tr>
+<td>AC-5</td>
+<td>On success a price chart and summary card render for the selected symbol</td>
+<td>Integration test, panel renders with fixture data</td>
+</tr>
+<tr>
+<td>AC-6</td>
+<td>The three existing views remain untouched</td>
+<td>All 114 existing tests continue to pass</td>
+</tr>
+<tr>
+<td>AC-7</td>
+<td>Clearing the selection hides the chart panel</td>
+<td>Integration test, Clear button calls <code>onClear</code></td>
+</tr>
+<tr>
+<td>AC-8</td>
+<td>The selected symbol persists across time-window tab switches</td>
+<td>Store unit test, <code>customSymbol</code> survives <code>setActiveWindow</code></td>
+</tr>
+<tr>
+<td>AC-9</td>
+<td>In mock mode the panel works offline with a fixture ticker</td>
+<td>Mock fixture added to <code>quotes.json</code> and <code>history.json</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/146854b2-ff9a-41e3-b123-3c03ffc25425/sps-redacted-2a6e7811eb654112b530a3bdd9432594_a863622bb8c54c89886a554a83cf2427_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/146854b2-ff9a-41e3-b123-3c03ffc25425/sps-redacted-2a6e7811eb654112b530a3bdd9432594_a863622bb8c54c89886a554a83cf2427_text_export.jpeg" alt="" width="600"></a>
+</p>
+<div class="admonition warning">
+<p class="admonition-title">BOB STOPS AND WAITS</p>
+<p>Bob ends the analysis by naming the next step and holding: the implementation subtasks are planned but not started. Nothing is written until you ask in <em>Step 3</em>. The requirements gate functions as a genuine checkpoint such that nothing advances until you say so.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">ISSUE COVERAGE REVIEW</p>
+<p>If your Bob build exposes slash commands, <code>/review --issue-coverage</code> performs a related workflow from the review side. It checks whether the changes on a branch actually cover what a referenced issue asked for. It is a useful cross check at the end of this module once the implementation exists.</p>
+</div>
+<p>Bob lists exactly which files change and, just as importantly, which do not: <strong>zero changes</strong> to the API layer, the data normalization service, the company registry, the existing chart components, or the Express proxy. The new state is a new field on the store, the new data path uses its own React Query cache keys so it cannot collide with the existing ones, and the new panel only mounts once the user has entered a symbol, so it is invisible until it is asked for.</p>
+<p>If anything in the analysis contradicts the issue, say so in the sidebar and let Bob revise before you move on. Correcting scope here costs one message; correcting it after implementation costs a rewrite.</p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>With the scope agreed, ask Bob to implement the enhancement. Copy and paste the following prompt into the <strong>Agentic Sidebar</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Implement the requested feature so that the finance dashboard allows a user to indicate a company symbol and see a new graph for that company. Reuse the existing finance data layer where possible, keep the UX simple, and preserve the existing dashboards. If a symbol has no data available, show a clear no-data message rather than falling back to another company's data.
+</code></pre></div>
+<ul>
+<li>Press <strong>Send</strong> (or hit <span class="keys"><kbd class="key-enter">Enter</kbd></span>) to execute.</li>
+<li>Bob starts the subtasks planned in <em>Step 2</em> and asks for approval as it goes</li>
+<li>The Todo List at the top of the session tracks progress</li>
+<li>The header will read <strong>All tasks completed</strong> once Bob is done</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/9553d7cf-f7bf-42d5-ae4d-8b2220567ef0/user_cropped_screenshot_d3b64244e65849bda5fe784e084293d0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/9553d7cf-f7bf-42d5-ae4d-8b2220567ef0/user_cropped_screenshot_d3b64244e65849bda5fe784e084293d0_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Watch the order in which Bob writes. Rather than creating files one at a time, it groups them into <strong>dependency-ordered batches</strong>, so nothing is written before the things it imports exist:</p>
+<table>
+<thead>
+<tr>
+<th>BATCH</th>
+<th>WHAT IT WRITES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Batch 1</strong></td>
+<td>The store change: <code>customSymbol</code> and <code>setCustomSymbol</code> added to <code>dashboardStore.js</code></td>
+</tr>
+<tr>
+<td><strong>Batch 2</strong></td>
+<td>The data hook: <code>useCustomSymbolData()</code> exported from <code>useMarketData.js</code></td>
+</tr>
+<tr>
+<td><strong>Batch 3</strong></td>
+<td>The new components: <code>CompanySelector</code> and <code>CustomSymbolPanel</code>, each with its CSS module</td>
+</tr>
+<tr>
+<td><strong>Batch 4</strong></td>
+<td>The wiring: <code>CompanySelector</code> and <code>CustomSymbolPanel</code> mounted in <code>DashboardPage.jsx</code>, below the existing view switch</td>
+</tr>
+<tr>
+<td><strong>Batch 5</strong></td>
+<td>The fixtures and tests: an <code>NVDA</code> entry appended to the mock JSON, plus the new test files</td>
+</tr>
+</tbody>
+</table>
+<p>Each batch reports the files it touched. None of the existing view components are rewritten to make room for the new panel.</p>
+<p>After the last batch, Bob posts a <strong>What was built</strong> summary.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/d5747c43-1ba5-409f-8dbf-f538f522b7f3/user_cropped_screenshot_4357b7a34f31463aa03d08555a8913f6_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/d5747c43-1ba5-409f-8dbf-f538f522b7f3/user_cropped_screenshot_4357b7a34f31463aa03d08555a8913f6_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p><em>Step 4</em> breaks the test count into new versus pre-existing and turns it into a formal verdict.</p>
+<p>Below the numbers, Bob lists the work by layer. These are the rows that carry the enhancement:</p>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>LAYER</th>
+<th>FILES</th>
+<th>NOTES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Store</strong></td>
+<td><code>dashboardStore.js</code></td>
+<td><code>customSymbol</code> + <code>setCustomSymbol</code> for the new feature</td>
+</tr>
+<tr>
+<td><strong>Hooks</strong></td>
+<td><code>useMarketData.js</code>, <code>useCompanies.js</code></td>
+<td><code>useCustomSymbolData()</code> is the new hook</td>
+</tr>
+<tr>
+<td><strong>Dashboard</strong></td>
+<td><code>DashboardPage.jsx</code> + existing views</td>
+<td><code>CompanySelector</code> + <code>CustomSymbolPanel</code> wired below existing views</td>
+</tr>
+<tr>
+<td><strong>New feature</strong></td>
+<td><code>CompanySelector.jsx</code>, <code>CustomSymbolPanel.jsx</code></td>
+<td>Pure and props-driven; validates the ticker with <code>/^[A-Z]{1,5}$/</code></td>
+</tr>
+<tr>
+<td><strong>Services</strong></td>
+<td><code>financeData.js</code>, <code>financeApi.js</code>, <code>quotes.json</code>, <code>history.json</code></td>
+<td><code>NVDA</code> fixture included</td>
+</tr>
+<tr>
+<td><strong>Tests</strong></td>
+<td>10 files, 3 unit and 7 integration</td>
+<td><code>dashboardStore.test.js</code>, <code>CompanySelector.test.jsx</code>, and <code>CustomSymbolPanel.test.jsx</code> cover the feature</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Every one of those rows was named in the impact map in <em>Step 2</em>, and nothing turned up that the analysis did not predict. The API client, the normalization service, the company registry, and the existing chart components have no feature changes.</p>
+<p>The summary ends with a <strong>Feature behaviour</strong> paragraph. This is what you will check in the browser in <em>Step 5</em>:</p>
+<div class="admonition quote">
+<p>Enter any ticker (for example <code>NVDA</code>) in the <strong>Custom Company Chart</strong> section and it appears permanently below the <strong>Today / 7 Days / Quarter</strong> views. The panel shows a quote summary card plus a 30-day line chart. Invalid input is rejected before any fetch. <strong>Clear</strong> removes the panel. Under <code>npm run dev:mock</code>, <code>NVDA</code> resolves from the fixture, and any other symbol returns the <strong>No data found</strong> state.</p>
+</div>
+<p>Remember the last sentence for <em>Step 5</em>. In mock mode, only <code>NVDA</code> returns data. Every other symbol shows <strong>No data found</strong>, whether it is a real company like <code>AAPL</code> or a made-up ticker like <code>ZZZZ</code>.</p>
+<p>Bob stops here without committing anything. The counter at the bottom of the sidebar shows how many files changed. Do not commit or undo them: <em>Step 4</em> runs the validation against these changes, and the next module reviews the diff before anything is committed.</p>
+<div class="admonition warning">
+<p class="admonition-title">ATTENTION: YOUR RESULTS MAY VARY</p>
+<p>As in <strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 | Build</a></strong>, Bob's implementation is <strong>not deterministic</strong>. The exact subtasks, file names, test counts, and UX shape (input field versus dropdown, panel placement) may differ from what is shown here. Judge the result against the acceptance criteria rather than against these screenshots.</p>
+<p>The session shown here rebuilt the whole application before adding the feature, which is why it reports <strong>62 files changed</strong>. If you carried your Part 1 code forward, expect far fewer.</p>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>With the implementation in place, run the validation gate. Copy and paste the following prompt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Run the appropriate project validation for the new graph feature for a company selected by the user. Summarize what passed, what failed, and whether the branch is ready to push back to GitHub.
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/7efb6dda-98cb-485c-a459-573998c1fe32/user_cropped_screenshot_37bc5e5b75a14ca7b29220dc5599065d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/7efb6dda-98cb-485c-a459-573998c1fe32/user_cropped_screenshot_37bc5e5b75a14ca7b29220dc5599065d_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Press <strong>Send</strong> (or hit <span class="keys"><kbd class="key-enter">Enter</kbd></span>). Bob runs the lint, test, and build gates against the code on disk, fixes anything that fails, and reports whether the branch is ready to deliver. If a gate fails, let Bob work through it.</p>
+<p>When it finishes, Bob answers with <strong>Validation result: PASS, branch is ready</strong>, then shows the results behind that verdict.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/4b209a05-3001-41af-bbc9-32aab623c5a1/user_cropped_screenshot_f412612c66b149b8a39d9e294105251f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/4b209a05-3001-41af-bbc9-32aab623c5a1/user_cropped_screenshot_f412612c66b149b8a39d9e294105251f_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p><strong>Gate results</strong> lists the three checks Bob ran. These are the same three GitHub Actions will run on the branch once it is pushed:</p>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>CHECK</th>
+<th>RESULT</th>
+<th>WHAT IT MEANS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ESLint</strong></td>
+<td>0 errors, 0 warnings</td>
+<td>No code-style or correctness warnings anywhere in <code>src/</code></td>
+</tr>
+<tr>
+<td><strong>Vitest</strong></td>
+<td>128 / 128 passed</td>
+<td>Every test in all 10 suites passed, 0 failures</td>
+</tr>
+<tr>
+<td><strong>Vite build</strong></td>
+<td>Clean</td>
+<td>The production build compiled with no warnings</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Bob then lists what the 30 new tests actually check, one row per test file:</p>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>SUITE</th>
+<th>TESTS</th>
+<th>SCENARIOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dashboardStore.test.js</code></td>
+<td>12</td>
+<td>Initial <code>customSymbol: ''</code>, <code>setCustomSymbol</code> uppercases and trims, replaces a previous value, clears back to <code>''</code>, and survives <code>setActiveWindow</code></td>
+</tr>
+<tr>
+<td><code>CompanySelector.test.jsx</code></td>
+<td>12</td>
+<td>Render, valid submit calls <code>onSubmit('NVDA')</code>, draft clears after submit, empty submit shows the error alert, digits rejected, Clear button visibility, <code>onClear</code> callback, active-symbol label, error clears on keystroke</td>
+</tr>
+<tr>
+<td><code>CustomSymbolPanel.test.jsx</code></td>
+<td>6</td>
+<td>Loading spinner, fetch-error banner, no-quote banner, success panel renders, ticker in header, empty-history fallback</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Those scenarios match the acceptance criteria from <em>Step 2</em>: digits rejected and empty submit are AC-2, the loading spinner is AC-3, the error banners are AC-4, the success panel is AC-5, the Clear button is AC-7, and <code>survives setActiveWindow</code> is AC-8.</p>
+<p><strong>Zero regressions</strong> answers AC-6:</p>
+<div class="admonition quote">
+<p>All <strong>98 pre-existing tests pass without modification</strong>. The store change adds new fields only; the <code>DashboardPage.jsx</code> change appends the feature section <em>after</em> the existing view switch, so no existing JSX was removed or reordered.</p>
+</div>
+<p>Bob ends with the commands to deliver the branch: <code>git add -A</code> and a commit whose message lists the store field, the hook, the two components, the <code>NVDA</code> fixture, the <code>ResizeObserver</code> polyfill, and the 30 new tests.</p>
+<div class="admonition warning">
+<p class="admonition-title">DO NOT RUN THE PUSH COMMANDS YET</p>
+<p>The branch is ready, but do not commit or push yet. The next module has Bob review the diff first, then prepares the delivery commands with the pull request in mind. Review the commands here; the next module is where you will run them.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">IF A GATE COMES BACK RED</p>
+<p>A first-run failure is normal and is worth watching rather than skipping past. The <code>ResizeObserver</code> polyfill in the run above exists because the chart component needs a browser API that jsdom does not implement, which surfaces as a failing test before it becomes a one-line fix in the test setup. Tell Bob to fix what failed and rerun the validation. The branch is not ready until this response reads <strong>PASS</strong> with all three gates green.</p>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>Verify the feature in the running application. Everything up to this point has been Bob reporting on its own work. This is where you check it yourself.</p>
+<p>With an open <strong>Terminal</strong> console, start the dev server in mock mode with the following commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cd finance-app
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npm run dev:mock
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/56e00b65-fa9c-4c9b-8e88-d4a3b1c1e630/user_cropped_screenshot_64f6af796099474c99b3de09a98f3e4e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/56e00b65-fa9c-4c9b-8e88-d4a3b1c1e630/user_cropped_screenshot_64f6af796099474c99b3de09a98f3e4e_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Copy the local URL Vite prints, <code>http://localhost:5173/</code>, into a browser. The dashboard loads on the <strong>Today</strong> view with a <strong>MOCK</strong> badge beside the title, confirming everything on screen is fixture data.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/0c18a189-642e-401b-8e43-924e0634afc5/user_cropped_screenshot_7323d28069e541278a7e03e85f159280_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/0c18a189-642e-401b-8e43-924e0634afc5/user_cropped_screenshot_7323d28069e541278a7e03e85f159280_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Check the original dashboard before touching the new feature. The <strong>Today / Last 7 Days / Last Quarter</strong> switch is still in the header, <strong>Daily Performance Ranking</strong> still ranks the tracked companies with their bars and daily percentages, and <strong>Quote Detail</strong> still renders a card per company. Nothing from Part 1 was moved or restyled to make room for the enhancement.</p>
+<div class="admonition note">
+<p class="admonition-title">SIX COMPANIES, NOT FIVE</p>
+<p>The ranking and quote grid above list six companies rather than the original five, because the <code>NVDA</code> fixture Bob added in <em>Step 3</em> was also registered in <code>companies.js</code>, the single source of truth for the tracked set. That is an additive entry in the registry rather than a change to the views, and it is why <code>NVDA</code> behaves like a first-class company here. Your run may show the original five with <code>NVDA</code> available only to the custom panel. Either is acceptable.</p>
+</div>
+<p>Now scroll to the bottom of the page. Below <strong>Quote Detail</strong> there is a new <strong>Custom Company</strong> section holding the <strong>Custom Company Chart</strong> panel: one line of instruction, a ticker input, and a <strong>Load</strong> button. This is <code>CompanySelector</code>, mounted after the existing view switch exactly as the impact map in <em>Step 2</em> promised.</p>
+<p>Start with a malformed entry. Type <code>IBM1</code> and click <strong>Load</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/7a45c4cb-ed6c-4695-82b0-9852ed0996eb/user_cropped_screenshot_d0828bf07b2d475e9ec06f94d3a855b8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/7a45c4cb-ed6c-4695-82b0-9852ed0996eb/user_cropped_screenshot_d0828bf07b2d475e9ec06f94d3a855b8_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The input rejects it inline with <strong>Ticker must be 1–5 letters (e.g. NVDA)</strong> and no fetch is issued. That is AC-2 confirmed in the browser, and it is the same rule the digits-rejected case in <code>CompanySelector.test.jsx</code> exercises. An empty submission behaves the same way.</p>
+<p>Next, try a valid ticker that has no data in mock mode, such as <code>AAPL</code>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/bf227869-5dbd-4379-9787-05f4eeb066a3/user_cropped_screenshot_d84fb2982dd34049b69bb83652a3b47a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/bf227869-5dbd-4379-9787-05f4eeb066a3/user_cropped_screenshot_d84fb2982dd34049b69bb83652a3b47a_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The panel accepts the symbol, reports <strong>Currently showing: AAPL</strong>, and replaces the chart with a clear message: <strong>No data found for symbol "AAPL". Check the ticker and try again.</strong> That is AC-4: a valid symbol the app cannot resolve produces a clear message instead of a crash or an empty chart.</p>
+<p>Finally, load <code>NVDA</code>. The panel shows NVIDIA's quote card and its 30-day price chart. Click <strong>Clear</strong> and the panel disappears. Load it again, then switch between <strong>Today</strong>, <strong>Last 7 Days</strong>, and <strong>Last Quarter</strong>: the panel stays put.</p>
+</li>
+</ol>
+<hr>
+<h2 id="iii-reviewing-the-enhancement"><strong>iii. Reviewing the enhancement</strong></h2>
+<p>Walk the acceptance criteria one final time against what is now running:</p>
+<table>
+<thead>
+<tr>
+<th>ACCEPTANCE CRITERION</th>
+<th>HOW IT IS MET</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Users can enter or select a company or ticker</td>
+<td>New selector control on the dashboard</td>
+</tr>
+<tr>
+<td>The app fetches or resolves data for that company</td>
+<td>Data service extended to resolve arbitrary tickers, reusing the <strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 Build</a></strong> layer</td>
+</tr>
+<tr>
+<td>A new graph is rendered without removing the existing dashboards</td>
+<td>Additive chart panel; the Current Day, Last 7 Days, and Last Quarter views unchanged</td>
+</tr>
+<tr>
+<td>Invalid symbols produce a clear message to the user</td>
+<td>Malformed input is rejected inline before any fetch; a valid symbol with no data shows a clear no-data message</td>
+</tr>
+<tr>
+<td>Tests or validation steps cover the new behavior</td>
+<td>New unit and component tests; the full lint, test, and build gate is green</td>
+</tr>
+</tbody>
+</table>
+<p>A GitHub issue went in, and a working, tested feature came out, with the analysis, the plan, and the test results visible at every step.</p>
+<hr>
+<h2 id="iv-key-takeaways"><strong>iv. Key takeaways</strong></h2>
+<ul>
+<li>A GitHub issue is enough context for Bob to derive acceptance criteria, work out which files are affected, and identify what must not break.</li>
+<li>Agreeing the scope before any code is written is the same checkpoint the plan review provided in <strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 | Build</a></strong>.</li>
+<li>Reusing the existing data layer keeps the enhancement additive: nothing was rewritten or restructured to fit it in.</li>
+<li>The branch is not done until lint, tests, and build all pass, and the feature has been checked in the browser.</li>
+<li>Bob is not deterministic, so your component and file names may differ from the screenshots. Judge your result against the acceptance criteria.</li>
+</ul>
+<p>
+Don't commit any code yet. In the final module, <a href="https://bienko.github.io/bob-sdlc/evolve-3/" target="_blank"><strong>Preparing the Pull Request</strong></a>, Bob reviews the diff, writes the pull request description, prepares the push, and hands the enhancement off for merge.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../evolve-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2.1 Publishing to GitHub">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2.1 Publishing to GitHub
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../evolve-3/" class="md-footer__link md-footer__link--next" aria-label="Next: 2.3 Preparing a pull request">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2.3 Preparing a pull request
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

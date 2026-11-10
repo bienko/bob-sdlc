@@ -1,0 +1,1326 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GitHub SDLC Automation with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../evolve-2/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.3 Preparing a pull request - GitHub SDLC Automation with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preparing-a-pull-request" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-header__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub SDLC Automation with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.3 Preparing a pull request
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-nav__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    GitHub SDLC Automation with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup and registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Planning and scaffolding the application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Building and validating the dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Evolve
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Evolve
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Publishing to GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Implementing a feature request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Preparing a pull request
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Preparing a pull request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-preparing-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Preparing a pull request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-complete-sdlc-coverage-with-bob-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Complete SDLC coverage with Bob + GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-earn-accreditation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. Earn accreditation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-preparing-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Preparing a pull request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-complete-sdlc-coverage-with-bob-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Complete SDLC coverage with Bob + GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-earn-accreditation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. Earn accreditation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>PART 2 | EVOLVE</strong></p>
+<h1 id="preparing-a-pull-request"><strong>PREPARING A PULL REQUEST</strong></h1>
+<hr>
+<h2 id="i-why-this-matters"><strong>i. Why this matters</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/7%20Preparing%20a%20Pull%20Request%20%5BBob%20SDLC%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Preparing a Pull Request</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCHJjRTm8qCFmGTRRp9Gp3R2DWjG" target="_blank">[2 min]</a></strong></p>
+</div>
+<p>A convincing agentic workflow must show how the work gets <em>finished</em>— reviewed, described, delivered, and merged —every bit of detail as how the code gets written. The chart for a company selected by the user now runs locally and passes validation. From GitHub's perspective, however, nothing has happened yet. The issue is still open, the feature branch has no new commits, and no reviewer has anything to look at.</p>
+<div class="admonition warning">
+<p>The realistic closure path takes one of three shapes: Bob updates the PR branch with the requested code and tests, Bob prepares the branch and PR notes for a maintainer to merge, or a downstream GitHub automation merges or closes the PR after validation. This module demonstrates the <strong>maintainer</strong> merge path, the most common in practice.</p>
+</div>
+<p>In this module, you will use IBM Bob to review the updated branch, generate the pull request description, prepare the push commands, open the pull request on GitHub, and close the loop by merging the enhancement and letting GitHub close the issue that started it.</p>
+<p>Note how the work is split: Bob prepares everything, GitHub runs the checks, and a person makes the decision to merge.</p>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>Take note of where this final module places the authority to act. Bob prepares the review, the description, and the commands; GitHub's CI re-validates the work on a machine no agent can edit; and the decision to merge — the single action that changes <code>main</code> — belongs to a person. The control discipline that has run through this entire curriculum concludes precisely where it matters most: at the moment of delivery.</p>
+</div>
+<h2 id="ii-preparing-a-pull-request"><strong>ii. Preparing a pull request</strong></h2>
+<p><strong>You will progress through this module across three phases:</strong> review and describe the change, push and open the pull request, and merge to close the loop.</p>
+<hr>
+<ol>
+<li>
+<p>With <strong>Agent mode</strong> active, ask Bob to review the branch and prepare everything needed to deliver it. Copy and paste the following prompt into the <strong>Agentic Sidebar</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Review the updated branch, summarize the feature implementation, generate a pull request update description, and provide the git commands needed to push the changes so the GitHub pull request can be completed.
+</code></pre></div>
+<ul>
+<li>Press <strong>Send</strong> (or hit <span class="keys"><kbd class="key-enter">Enter</kbd></span>)</li>
+<li>Bob asks for approval before its first command</li>
+<li>It is read-only: <code>git log</code>, <code>git status</code>, and <code>git diff --stat</code>, run in <code>finance-app</code> to see the current state of the branch</li>
+<li>Click <strong>Approve once</strong></li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/592ae795-9026-4ca5-b7c4-3dd6bf709aaf/user_cropped_screenshot_788a4183f1214839bbbb562743770fe5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/592ae795-9026-4ca5-b7c4-3dd6bf709aaf/user_cropped_screenshot_788a4183f1214839bbbb562743770fe5_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Bob reads through the changes you have not committed yet and produces a report titled <strong>feat: add user-selected company chart</strong>. Click <strong>Open</strong> to read it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/d3eb60ca-536e-455d-87a9-1818ac6bfb4c/user_cropped_screenshot_377ff1f2143d4450b8270d15e78ef32e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/d3eb60ca-536e-455d-87a9-1818ac6bfb4c/user_cropped_screenshot_377ff1f2143d4450b8270d15e78ef32e_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The header shows where the change is going, <code>Base: main ← Head: feature/user-selected-company-chart</code>, along with status badges for the checks, the test count, and the number of new files. The <strong>Closes #1</strong> tag links the work back to the issue. Below the header, the report is structured like a pull request body:</p>
+<div class="admonition quote">
+<ul>
+<li><strong>Feature summary</strong>: what the new section does. It sits below the existing dashboards, the user types a ticker, and a quote card and 30-day line chart render for it. The three original views are untouched. The summary also covers input validation before any network call, loading and error states, the <strong>Clear</strong> button, the symbol surviving tab switches, and the <code>NVDA</code> fixture that lets the feature run offline.</li>
+<li><strong>New data flow</strong>: a diagram following one submission from the input to the data layer, <code>CompanySelector</code> → <code>dashboardStore</code> → <code>DashboardPage</code> → <code>CustomSymbolPanel</code> → <code>useCustomSymbolData</code> → <code>financeApi / mock</code>. One line underneath explains why nothing breaks: the new queries use their own cache keys, and neither one runs until a valid ticker is entered.</li>
+<li><strong>Files changed</strong>: a table listing each file with a one-line note on what changed in it.</li>
+</ul>
+</div>
+<p>The final table deserves a closer inspection.</p>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>FILE</th>
+<th>TAG</th>
+<th>CHANGE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/store/dashboardStore.js</code></td>
+<td>Modified</td>
+<td>Added <code>customSymbol: ''</code> state and the <code>setCustomSymbol()</code> action. Existing fields unchanged</td>
+</tr>
+<tr>
+<td><code>src/hooks/useMarketData.js</code></td>
+<td>Modified</td>
+<td>Added <code>useCustomSymbolData(symbol)</code>, two parallel React Query calls for quote and history. Existing hooks unchanged</td>
+</tr>
+<tr>
+<td><code>src/components/dashboard/DashboardPage.jsx</code></td>
+<td>Modified</td>
+<td>Two new imports, two new store selectors, and a Custom Company section appended <em>after</em> the existing view switch. No existing JSX removed</td>
+</tr>
+<tr>
+<td><code>src/services/mock/quotes.json</code></td>
+<td>Modified</td>
+<td><code>NVDA</code> quote entry appended. The existing five entries are left in place</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">TREAT THE DESCRIPTION AS A DRAFT</p>
+<p>Read Bob's description before you paste it into GitHub. It is generated from the code Bob wrote and the tests that passed, so treat it the way you would a colleague's PR body: check that every claim matches what you saw in the browser in the previous module, and edit anything that overstates the change.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">SLASH COMMAND EQUIVALENTS</p>
+<p>If your Bob build exposes slash commands, this phase maps onto them directly: <code>/review</code> performs the diff review and surfaces findings, and <code>/create-pr</code> generates the description and prepares the pull request in one step. The prompt above demonstrates the same capabilities conversationally.</p>
+</div>
+<p>Keep the report open. It provides you the text you will paste into the pull request in <em>Step 3</em>.</p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>Scroll to the <strong>Push commands</strong> block at the end of Bob's review. It contains three commands: one to stage the files, one to commit them with the message already written out, and one to push the branch.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/fe755492-3d55-43db-8c93-052c5dc63820/user_cropped_screenshot_a7555d7800a24c6fac3f749644e88759_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/fe755492-3d55-43db-8c93-052c5dc63820/user_cropped_screenshot_a7555d7800a24c6fac3f749644e88759_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>In the run shown, Bob produced this sequence:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git add -A
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git commit -m "feat: add user-selected company chart (CompanySelector + CustomSymbolPanel)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- customSymbol state in dashboardStore + setCustomSymbol action
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>- useCustomSymbolData hook (quote + 30-day history, mock-aware)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>- CompanySelector: ticker input with 1-5 letter local validation
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>- CustomSymbolPanel: quote card + line chart, loading/error states
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>- NVDA mock fixture in quotes.json + history.json
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>- ResizeObserver polyfill in test setup
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>- 30 new tests: dashboardStore(12) CompanySelector(12) CustomSymbolPanel(6)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>- 128/128 tests, 0 ESLint warnings, Vite build clean
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Closes #1"
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>git push -u origin feature/user-selected-company-chart
+</code></pre></div>
+<p>Two things to note before you run it:</p>
+<ul>
+<li>The whole commit message sits inside one pair of quotes, so the block can be pasted and run as it is.</li>
+<li>The last line, <code>Closes #1</code>, is what makes GitHub close the issue when this work is merged.</li>
+</ul>
+<p>Copy the block, paste it into a Terminal console, and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/fcbed3c9-5aeb-4b0d-b3b6-8cc7ec605f5e/user_cropped_screenshot_96117d07c56b4a0181eff51f4f20a010_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/fcbed3c9-5aeb-4b0d-b3b6-8cc7ec605f5e/user_cropped_screenshot_96117d07c56b4a0181eff51f4f20a010_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Check the output:</p>
+<div class="admonition note">
+<ul>
+<li><strong><code>Your commit was protected by Block Secrets powered by IBM Vault Radar</code></strong>: the workspace scanned your files for passwords and keys before allowing the commit. This runs on every commit and is not a problem with your code.</li>
+<li><strong><code>[feature/user-selected-company-chart f36b1c4] feat: add user-selected company chart ...</code></strong>: the branch name and the new commit ID. The work went onto the feature branch, not <code>main</code>.</li>
+<li><strong><code>62 files changed</code></strong>: how big the commit is.</li>
+<li>The file list, where <code>create mode 100644</code> marks a new file. Look for <code>CompanySelector.jsx</code>, <code>CompanySelector.module.css</code>, <code>CustomSymbolPanel.jsx</code>, and <code>CustomSymbolPanel.module.css</code>. Those four are the new feature.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">CHECK WHAT YOU ARE COMMITTING FIRST</p>
+<p><code>git add -A</code> stages every changed file without asking. Run <code>git status</code> before you commit and read the list. If it includes anything you did not mean to deliver, add files one at a time with <code>git add &lt;path&gt;</code> instead.</p>
+</div>
+<p>The push runs straight after the commit and sends the branch to GitHub, which starts CI.</p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>Open the pull request on GitHub. Refresh the repository page in your browser. GitHub shows a banner at the top of the file list saying the branch had recent pushes, with a green <strong>Compare &amp; pull request</strong> button — click it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/5ae4fb25-7a65-495c-903b-be27cd33bf58/user_cropped_screenshot_39b31d3856654d50a3d0c8b5abca65ce_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/5ae4fb25-7a65-495c-903b-be27cd33bf58/user_cropped_screenshot_39b31d3856654d50a3d0c8b5abca65ce_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Note that <code>main</code> still shows the commit from the previous module. Your new work is on the feature branch, and the pull request is the request to bring it into <code>main</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">IF THE BANNER IS NOT THERE</p>
+<p>The banner disappears after a while. Open the <strong>Pull requests</strong> tab, click <strong>New pull request</strong>, then set the base to <code>main</code> and the compare branch to <code>feature/user-selected-company-chart</code>. That opens the same form.</p>
+</div>
+<p>The <strong>Open a pull request</strong> form already has two things in it. GitHub fills the title and description from your commit. Below that is the repository's own template from <code>.github/PULL_REQUEST_TEMPLATE.md</code>, with empty <strong>Summary</strong>, <strong>Linked Issue</strong>, <strong>Changes</strong>, <strong>Test Coverage</strong>, <strong>Validation</strong>, <strong>Screenshots / Data Snapshots</strong>, and <strong>Notes for Reviewer</strong> headings.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/6fc23285-f18c-463b-a26f-76fe5e4e6605/user_cropped_screenshot_48912cab42374a8a8e9da5b6d792829a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/6fc23285-f18c-463b-a26f-76fe5e4e6605/user_cropped_screenshot_48912cab42374a8a8e9da5b6d792829a_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Fill in each heading using Bob's report from <em>Step 1</em>:</p>
+<table>
+<thead>
+<tr>
+<th>TEMPLATE SECTION</th>
+<th>WHAT TO PASTE FROM BOB'S REPORT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Summary</strong></td>
+<td>The feature summary: what the new section does and what it renders</td>
+</tr>
+<tr>
+<td><strong>Linked Issue</strong></td>
+<td><code>Closes #1</code>, so the merge closes the issue</td>
+</tr>
+<tr>
+<td><strong>Changes</strong></td>
+<td>The files-changed table, one bullet per file</td>
+</tr>
+<tr>
+<td><strong>Test Coverage</strong></td>
+<td>The new tests, and tick the three checkboxes</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>The check results: lint clean, all tests passing, clean build</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">FINISH THE <code>Closes #</code> LINE</p>
+<p>The template includes an empty <code>Closes #</code> under <strong>Linked Issue</strong>. Change it to <code>Closes #1</code> or delete the line. On its own, <code>Closes #</code> does not link to anything.</p>
+</div>
+<p>When the description is ready, click <strong>Create pull request</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/7eb728be-6cf5-4bdd-a595-92ab9f5b39eb/sps-redacted-86a0ba3f072b4e4ab01f7fa227b24501_3a4420231f5e4cbeae37eb0eb917fb4c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/7eb728be-6cf5-4bdd-a595-92ab9f5b39eb/sps-redacted-86a0ba3f072b4e4ab01f7fa227b24501_3a4420231f5e4cbeae37eb0eb917fb4c_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The pull request is now open. Its header tells you:</p>
+<div class="admonition note">
+<ul>
+<li>The pull request number and the green <strong>Open</strong> badge.</li>
+<li>Who wants to merge what, and in which direction: one commit, from <code>feature/user-selected-company-chart</code> into <code>main</code>.</li>
+<li>The tabs: <strong>Commits</strong>, <strong>Checks</strong>, and <strong>Files changed</strong>, with the number of added and removed lines. The file count matches what the terminal reported in <em>Step 2</em>.</li>
+<li><strong>Able to merge</strong> at the top right, and <code>Closes #1</code> as a working link to the issue.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">CHECK THAT THE ISSUE IS LINKED</p>
+<p>Look at the <strong>Development</strong> panel in the right sidebar. If the link worked, GitHub lists issue <code>#1</code> there under <em>Successfully merging this pull request may close these issues</em>.</p>
+<p>If it says <strong>None yet</strong>, edit the description so there is exactly one <code>Closes #1</code> on its own line, then save. This link is what closes the issue when you merge in <em>Step 6</em>.</p>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>Let GitHub run the checks. Scroll to the bottom of the <strong>Conversation</strong> tab. Below the description is a panel reporting <strong>Some checks haven't completed yet</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/00e498b2-d0a2-498f-a769-6be8f38df9ae/user_cropped_screenshot_3814f2145c4f40df943825febd15b13d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/00e498b2-d0a2-498f-a769-6be8f38df9ae/user_cropped_screenshot_3814f2145c4f40df943825febd15b13d_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>There are two entries, and both come from the workflow file you pushed in module 2-1:</p>
+<div class="admonition note">
+<ul>
+<li><strong><code>Finance App CI / validate (push)</code></strong> — already finished. This ran when you pushed the commit in <em>Step 2</em>, because the branch name matches the <code>feature/**</code> pattern in the workflow's push trigger.</li>
+<li><strong><code>Finance App CI / validate (pull_request)</code></strong> — still running. This one started when you opened the pull request against <code>main</code>, which matches the workflow's second trigger.</li>
+</ul>
+</div>
+<p>Below them, GitHub says <strong>No conflicts with base branch</strong>, which means it can merge the branch automatically once the checks finish.</p>
+<p>Click the <strong>Finance App CI</strong> check name (or <strong>Details</strong> beside it) to open the run.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/ded7d65c-714f-4b48-b790-83071dfee31e/sps-redacted-e80832ce896a47f0bd2930325d5f56af_c50bae0885f04656b1dab432b2d05d12_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/ded7d65c-714f-4b48-b790-83071dfee31e/sps-redacted-e80832ce896a47f0bd2930325d5f56af_c50bae0885f04656b1dab432b2d05d12_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>This is the <code>validate</code> job running, one step per line. Click any step to see its log. The first steps set up the machine: it checks out your branch, installs Node, then runs <code>npm ci</code> to install the dependencies from <code>package-lock.json</code>. The three checks are queued below and greyed out until their turn: <strong>Run npm run lint</strong>, <strong>Run npm run test:ci</strong>, and <strong>Run npm run build</strong>.</p>
+<div class="admonition note">
+<p>The log says <strong>Node 20 is being deprecated</strong>. That is GitHub retiring the version its own actions run on. It has nothing to do with your application.</p>
+<p>It also says <strong>npm cache is not found</strong>. That is expected on a first run: there is nothing cached yet, so <code>npm ci</code> downloads everything. Later runs are faster.</p>
+</div>
+<p>Wait for the job to finish, then reload.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/268028b8-b98d-4956-9062-b9714b3141f1/sps-redacted-2c30c488c44a4375a5b7051228ef4398_19a364d0a4e143ec8264329788fd5d1d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/268028b8-b98d-4956-9062-b9714b3141f1/sps-redacted-2c30c488c44a4375a5b7051228ef4398_19a364d0a4e143ec8264329788fd5d1d_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The <code>validate</code> job succeeded, with a green check on every step. Click <strong>Run npm run lint</strong> and the log shows the command GitHub ran:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt; finance-app@0.1.0 lint
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt; eslint src --ext .js,.jsx --report-unused-disable-directives --max-warnings 0
+</code></pre></div>
+<div class="admonition warning">
+<p>Bob validated the code locally, but the merge decision rests on CI results no agent can edit and a review no agent can skip.</p>
+</div>
+<p>That is the same command Bob ran in the previous module, now run on a fresh machine that has never seen your workspace. With <strong>Run npm run test:ci</strong> and <strong>Run npm run build</strong> green as well, all three checks Bob ran locally have passed again on GitHub.</p>
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>Back in the Bob IDE, ask Bob to confirm the branch is finished. Copy and paste the following prompt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Summarize the completed enhancement, confirm the branch is ready, and describe the final GitHub action needed to merge or close the request.
+</code></pre></div>
+<p>Press <strong>Send</strong>. Bob runs <code>git show --stat HEAD</code> first so the summary is based on the commit that actually exists, then reports back that everything is confirmed. It produces a report titled <strong>SDLC Loop Closure — User-Selected Company Chart</strong>. Click <strong>Open</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/18a9e9ff-ee85-4d82-a423-127c787b0d02/user_cropped_screenshot_67ed74d65abc41cc83681bdaffe7906e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/18a9e9ff-ee85-4d82-a423-127c787b0d02/user_cropped_screenshot_67ed74d65abc41cc83681bdaffe7906e_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>This report is the summary of everything the workshop produced.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/cf0926a2-73cd-49c9-a11f-f51e9c9c0150/user_cropped_screenshot_ce0d50ccc7b0489b8c34473a066f0c3d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/cf0926a2-73cd-49c9-a11f-f51e9c9c0150/user_cropped_screenshot_ce0d50ccc7b0489b8c34473a066f0c3d_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The header gives the commit and the branch, tagged <strong>Ready to merge</strong> and <strong>Closes #1</strong>. Below it, four tiles show the totals: tests passing, new tests added, ESLint warnings, and acceptance criteria met.</p>
+<p>The <strong>Enhancement summary</strong> describes the feature in plain terms: a user enters a ticker and gets a quote card and a 30-day price chart, in a <strong>Custom Company</strong> section below the existing dashboards. It then covers the rest of the behaviour, including validation before any network call, the loading and error states, the Clear button, the symbol surviving tab switches, and the <code>NVDA</code> fixture for offline use.</p>
+<p>Two columns list the new files and the changed ones:</p>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>NEW FILES</th>
+<th>MODIFIED</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CompanySelector.jsx</code> + <code>.module.css</code></td>
+<td><code>dashboardStore.js</code>, <code>customSymbol</code> state and action</td>
+</tr>
+<tr>
+<td><code>CustomSymbolPanel.jsx</code> + <code>.module.css</code></td>
+<td><code>useMarketData.js</code>, the <code>useCustomSymbolData</code> hook</td>
+</tr>
+<tr>
+<td><code>dashboardStore.test.js</code> (12 tests)</td>
+<td><code>DashboardPage.jsx</code>, custom section wired below the views</td>
+</tr>
+<tr>
+<td><code>CompanySelector.test.jsx</code> (12 tests)</td>
+<td><code>mock/quotes.json</code> and <code>mock/history.json</code>, <code>NVDA</code> appended</td>
+</tr>
+<tr>
+<td><code>CustomSymbolPanel.test.jsx</code> (6 tests)</td>
+<td><code>tests/setup.js</code>, the <code>ResizeObserver</code> polyfill</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>That is a much shorter list than the file count in the commit, because git counts every file the session rewrote while this report lists only the files the feature actually needed. If someone asks what this change consists of, the table above is the answer.</p>
+<p>The report ends with <strong>Full SDLC journey — steps completed</strong>, which walks back through the lab stage by stage: the issue Bob fetched, the acceptance criteria it defined, the implementation, the validation, and the delivery.</p>
+<p>Bob also posts the same summary in the sidebar, so you can read it without opening the report.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/37519557-f53d-49fa-9e1a-9505f22aefab/user_cropped_screenshot_ff72b8380449477ab6a337919282ff50_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/37519557-f53d-49fa-9e1a-9505f22aefab/user_cropped_screenshot_ff72b8380449477ab6a337919282ff50_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>It starts with <strong>Enhancement complete, branch is merge-ready</strong>, recaps what was built, and lists four reasons the change is safe: <code>CompanySelector</code> validates the ticker before any network call; <code>CustomSymbolPanel</code> only appears once a symbol is entered and reuses the existing <code>SummaryCard</code> and <code>LineChart</code> unchanged; <code>useCustomSymbolData</code> uses its own cache keys, so it cannot affect the existing queries; and <code>customSymbol</code> is stored in Zustand, so it survives tab switches.</p>
+<p>Below that, the <strong>Branch state</strong> table lists what Bob checked against git:</p>
+<div class="admonition quote">
+<table>
+<thead>
+<tr>
+<th>CHECK</th>
+<th>RESULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commit</strong></td>
+<td>The commit ID and message</td>
+</tr>
+<tr>
+<td><strong>Working tree</strong></td>
+<td>0 untracked or modified files</td>
+</tr>
+<tr>
+<td><strong>ESLint</strong></td>
+<td>0 errors, 0 warnings</td>
+</tr>
+<tr>
+<td><strong>Tests</strong></td>
+<td>All passing, with no regressions</td>
+</tr>
+<tr>
+<td><strong>Build</strong></td>
+<td>Completed successfully</td>
+</tr>
+<tr>
+<td><strong>Acceptance criteria</strong></td>
+<td>All met, with passing tests</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The row to check before merging is <strong>Working tree: 0 untracked or modified files</strong>. It means there are no changes left on your machine that GitHub has not seen, so the CI run in <em>Step 4</em> tested exactly the code you are about to merge.</p>
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>
+<p>Merge the pull request. Open the repository on GitHub and click the <strong>Pull requests</strong> tab in the header.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/69ee545f-bf7c-411b-9d5b-74a61d5e39e7/user_cropped_screenshot_7bca623eeadc496497608840fd539836_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/69ee545f-bf7c-411b-9d5b-74a61d5e39e7/user_cropped_screenshot_7bca623eeadc496497608840fd539836_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The list shows open pull requests only. The single entry is the one you created, with a green check because its checks passed and a <strong>3 tasks</strong> counter from the checkboxes you ticked in the template. Click the title to open it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/e5993019-544b-4c91-a872-ab1f523bb925/user_cropped_screenshot_44efc3b68f764433a488bbd937c91815_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/e5993019-544b-4c91-a872-ab1f523bb925/user_cropped_screenshot_44efc3b68f764433a488bbd937c91815_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Review the change one final time before merging. Open the <strong>Files changed</strong> tab and compare it against Bob's report from <em>Step 5</em>. You should find the two new components, the store field, the hook, the fixtures, and the tests, and nothing else.</p>
+<p>Then go back to the <strong>Conversation</strong> tab and scroll to the merge box at the bottom.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/043d6b3e-de67-4dd8-a826-3f179e05c813/user_cropped_screenshot_b0914757636b4242b8324c04ef015024_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/043d6b3e-de67-4dd8-a826-3f179e05c813/user_cropped_screenshot_b0914757636b4242b8324c04ef015024_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Both entries are green now: <strong>All checks have passed</strong>, with <strong>2 successful checks</strong> where <em>Step 4</em> had one still running, and <strong>No conflicts with base branch</strong>. Click <strong>Merge pull request</strong>.</p>
+<p>GitHub asks you to confirm and shows the merge commit it will create.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/c55da5e3-f150-4201-af75-5aa475018406/user_cropped_screenshot_9d61c7c70cf74da88f84153627e8a4a9_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/c55da5e3-f150-4201-af75-5aa475018406/user_cropped_screenshot_9d61c7c70cf74da88f84153627e8a4a9_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>GitHub fills in the <strong>Commit message</strong> and <strong>Extended description</strong> for you. Leave both as they are and click <strong>Confirm merge</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/3cf43904-521c-40ea-99b8-997475eb21de/user_cropped_screenshot_093f74e826514e97b8225719706f3e32_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/3cf43904-521c-40ea-99b8-997475eb21de/user_cropped_screenshot_093f74e826514e97b8225719706f3e32_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The badge at the top turns purple and reads <strong>Merged</strong>, and the header now says the commit was merged into <code>main</code>. The feature is now part of the main branch.</p>
+<p>Next, check what the merge did to the issue. Click the <strong>Issues</strong> tab.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/ef6b478f-f67a-4e54-a5e7-b5c97b873845/user_cropped_screenshot_5ac6e5ec29b14c1e9df2eab6dfd6e18b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/ef6b478f-f67a-4e54-a5e7-b5c97b873845/user_cropped_screenshot_5ac6e5ec29b14c1e9df2eab6dfd6e18b_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The default view shows open issues, and it now reports <strong>Open 0</strong> with <strong>No results</strong>. Click the <strong>Closed</strong> filter to see where the issue went.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/b2d3516c-7469-446b-8ff5-3f032a7f9597/user_cropped_screenshot_f4fabdf8e4ca44759385a26dcbf3d206_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/b2d3516c-7469-446b-8ff5-3f032a7f9597/user_cropped_screenshot_f4fabdf8e4ca44759385a26dcbf3d206_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Issue <code>#1</code>, <strong>Add a graph for a user selected company</strong>, is marked closed, with a link on the right to the pull request that closed it. You never closed it yourself. The <code>Closes #1</code> in the description did that when you merged.</p>
+<div class="admonition warning">
+<p class="admonition-title">IF YOUR ISSUE IS STILL OPEN</p>
+<p>The <code>Closes #1</code> line did not register. Close the issue by hand, and next time add it to the description before you create the pull request.</p>
+</div>
+<p>The loop is complete: a GitHub issue went in, and a merged feature came out, checked by CI and linked back to the issue. The next enhancement follows the same path: new issue, new branch, new analysis, new pull request.</p>
+</li>
+</ol>
+<hr>
+<h2 id="iii-complete-sdlc-coverage-with-bob-github"><strong>iii. Complete SDLC coverage with Bob + GitHub</strong></h2>
+<p>Across the two parts of this workshop, every stage of the software development lifecycle appeared, and Bob took part in each one:</p>
+<table>
+<thead>
+<tr>
+<th>SDLC STAGE</th>
+<th>WHERE IT HAPPENED</th>
+<th>OUTCOME</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Planning &amp; Requirements</strong></td>
+<td>Bob fetched and analyzed the GitHub issue (previous module)</td>
+<td>Requirements understanding and acceptance criteria</td>
+</tr>
+<tr>
+<td><strong>2. Design &amp; Architecture</strong></td>
+<td>Bob identified the UI, state, and data service change areas</td>
+<td>Implementation plan that preserves existing features</td>
+</tr>
+<tr>
+<td><strong>3. Implementation</strong></td>
+<td>Bob implemented the new company chart</td>
+<td>Working code that satisfies the requirements</td>
+</tr>
+<tr>
+<td><strong>4. Testing &amp; QA</strong></td>
+<td>Bob ran lint, tests, and build locally</td>
+<td>Verified functionality with passing gates</td>
+</tr>
+<tr>
+<td><strong>5. Code Review</strong></td>
+<td>Bob reviewed the diff before delivery (<code>/review</code>)</td>
+<td>Findings surfaced before a human reviewer's time is spent</td>
+</tr>
+<tr>
+<td><strong>6. Integration Preparation</strong></td>
+<td>Bob generated the commit message and PR description</td>
+<td>Clean commits and a description ready for review</td>
+</tr>
+<tr>
+<td><strong>7. Release Management</strong></td>
+<td>The pull request opened against <code>main</code> (<code>/create-pr</code>)</td>
+<td>PR ready for maintainer review and merge</td>
+</tr>
+<tr>
+<td><strong>8. Continuous Integration</strong></td>
+<td>GitHub Actions validated the push and the PR</td>
+<td>Automated lint, test, and build verification</td>
+</tr>
+<tr>
+<td><strong>9. Maintenance &amp; Evolution</strong></td>
+<td>The loop repeats for every new issue</td>
+<td>Continuous product evolution with Bob's assistance</td>
+</tr>
+</tbody>
+</table>
+<p>Every change also traces back to the request that started it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GitHub Issue Created
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>       ↓
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Bob Fetches &amp; Analyzes the Request
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       ↓
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Bob Implements the Feature
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>       ↓
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Bob Runs Tests &amp; Validation
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       ↓
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Bob Reviews the Changes
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>       ↓
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Bob Prepares the Pull Request
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>       ↓
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>GitHub Actions CI/CD Validates
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>       ↓
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Human Maintainer Reviews &amp; Merges
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>       ↓
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>Feature Deployed and Issue Closed Automatically
+</code></pre></div>
+<hr>
+<h2 id="iv-key-takeaways"><strong>iv. Key takeaways</strong></h2>
+<ul>
+<li>Finishing the work can be automated too. Reviewing the changes, writing the pull request description, and preparing the push are all things Bob can do.</li>
+<li><code>Closes #N</code> in the pull request description is the cheapest traceability available. Merging the work closes the request that asked for it.</li>
+<li>Running the checks again on GitHub is what makes the work trustworthy. Passing locally is a <em>claim</em> whereas passing on CI is <em>proof</em>.</li>
+<li>The merge is left to a person by design: Bob prepares the delivery, GitHub validates it, and a human-in-the-loop makes the decision.</li>
+<li>The loop repeats. Every future enhancement follows the same path: issue, analysis, implementation, validation, pull request, merge.</li>
+</ul>
+<p>Congratulations on completing this hands-on curriculum! In <strong>Part 1 | Build</strong> you planned and built an application with Bob; in <strong>Part 2 | Evolve</strong> you published it to GitHub and carried a real feature request from an open issue to a merged pull request.</p>
+<p>Step back and consider what that loop demonstrates: the discipline of the <strong>AI Maturity Curve</strong>, operating inside the delivery platform your clients already use. Bob performing the work at every stage, and the human deciding what ships. That pairing is the story worth carrying into your next conversation about AI-assisted delivery.</p>
+<hr>
+<h2 id="v-earn-accreditation"><strong>v. Earn accreditation</strong></h2>
+<hr>
+<p>In order to receive credit for completion of this course, you must perform one of the two actions (in accordance with your role) described below:</p>
+<div class="admonition note">
+<p class="admonition-title">IBMers: RECORD A STAND &amp; DELIVER</p>
+<p><strong>IBM regular employees</strong> must record a Stand &amp; Deliver to receive credit for this course. By default, IBMers will be evaluated by their First Line Manager (FLM) — although they may request another manager to evaluate their Stand &amp; Deliver, if appropriate. Instructions on how to submit a Stand &amp; Deliver are included within the activity on <strong>IBM YourLearning</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Business Partners: COMPLETE THE SKILLS EVALUATION QUIZ</p>
+<p>The skills evaluation quiz <strong>only applies to business partners</strong>. The quiz consists of multiple choice questions, with four possible responses (and only one correct answer) for each question. The quiz questions will ask you about on-screen text or descriptions that come up as you work through the lab guide. Participants must pass the quiz with a grade of 80% or higher. Answers to the quiz can only be determined by carefully following the instructions of the hands-on lab. A link is provided within the course page on <strong>IBM Training</strong>.</p>
+</div>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../evolve-2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2.2 Implementing a feature request">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2.2 Implementing a feature request
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

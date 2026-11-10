@@ -1,0 +1,1322 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GitHub SDLC Automation with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../build-2/">
+      
+      
+        <link rel="next" href="../evolve-2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.1 Publishing to GitHub - GitHub SDLC Automation with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#publishing-to-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-header__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub SDLC Automation with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.1 Publishing to GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-nav__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    GitHub SDLC Automation with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup and registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Planning and scaffolding the application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Building and validating the dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Evolve
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Evolve
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Publishing to GitHub
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Publishing to GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-publishing-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Publishing to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Verification checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Implementing a feature request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Preparing a pull request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-publishing-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Publishing to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Verification checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>PART 2 | EVOLVE</strong></p>
+<h1 id="publishing-to-github"><strong>PUBLISHING TO GITHUB</strong></h1>
+<hr>
+<h2 id="i-why-this-matters"><strong>i. Why this matters</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/5%20Publishing%20to%20GitHub%20%5BBob%20SDLC%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Publishing to GitHub</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCRBWBdmffDJM89PR7MqDd6X22Gj" target="_blank">[2 min]</a></strong></p>
+</div>
+<p>The finance dashboard from <strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 | Build</a></strong> runs, passes its validation gates, and is ready to share. But it still lives only inside your IDE workspace. In fact, the workspace is not yet even a git repository — initialization has never occurred, not a single commit exists, and no <code>.gitignore</code> is present to keep dependencies and build artifacts out of version control. Until the code reaches a shared repository, there is no collaborative workspace for <em>issues</em> to capture requirements, for <em>pull</em> requests to carry review, or for continuous integration (CI) to guard the <code>main</code> branch.</p>
+<p>Modern delivery treats GitHub as that workspace. An issue is opened, a branch is created, code is written, tests run, a pull request is reviewed, and something is merged. <em>Part 2</em> of this hands-on lab places IBM Bob inside that loop. Before Bob can fetch an issue or prepare a pull request, however, the repository has to exist in two places: locally as an initialized git repository, and on GitHub.com as the shared remote.</p>
+<div class="admonition warning">
+<p class="admonition-title">PUBLISH TO YOUR <em>OWN</em> GITHUB REPOSITORIES</p>
+<p>A <strong>personal</strong> GitHub.com account is required for this module and the rest of <strong>Part 2 | Evolve</strong>. </p>
+<p>If your personal GitHub account is already linked to the IBM GitHub enterprise account, you can still publish code to repositories under your own (<em>personal</em>) account. However, you will encounter restrictions on what you can commit and publish to the <em>IBM GitHub</em> repositories — as only approved contributors are able to commit to such endpoints.</p>
+<p>To publish code for the purposes of <strong>Part 2 | Evolve</strong>, you will need to ensure that code is committed via your personal repositories, <em>not</em> the IBM repositories. The repository can be public or private. Bob's workflow is identical either way.</p>
+</div>
+<p>In this module, you will:</p>
+<ul>
+<li><strong>Create the GitHub repository</strong>, so the remote exists before anything is pushed to it</li>
+<li><strong>Let Bob inspect the workspace</strong> and surface anything blocking a clean push</li>
+<li><strong>Initialize the local repository</strong>, putting the <em>Part 1</em> code under version control</li>
+<li><strong>Publish the code</strong>, using the commands Bob prepares</li>
+<li><strong>Enable the collaboration features</strong> the rest of <em>Part 2</em> depends on</li>
+<li><strong>Open the issue</strong> that drives the next enhancement</li>
+</ul>
+<p>Pay attention to how Bob participates even in this administrative phase. It inspects the working tree, catches blockers like a missing <code>.gitignore</code>, and prepares the exact commands, while you retain control of the actual push.</p>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>This module applies the <strong>Scale &amp; Extend</strong> stage of the AI Maturity Curve to the delivery platform itself. Bob's reach now extends beyond the IDE — inspecting the working tree, surfacing blockers, and preparing the exact commands — while the one action that publishes the work, the push, remains yours to perform. As you learned throughout the previous course, extending an agent's reach and retaining control over consequential actions are practiced together, and this chapter asks you to do exactly that.</p>
+</div>
+<h2 id="ii-publishing-to-github"><strong>ii. Publishing to GitHub</strong></h2>
+<p>You will move through this module in four phases, in this order:</p>
+<ol>
+<li><strong>Create the empty repository on GitHub.com</strong> (steps 1 and 2), so the remote URL exists before anything else.</li>
+<li><strong>Let Bob check readiness and produce the delivery artifacts</strong> (steps 3 and 4).</li>
+<li><strong>Initialize the local repository and push</strong> (steps 5 through 7).</li>
+<li><strong>Verify and stage the collaboration surface</strong> (steps 8 through 10): confirm the publish, enable Issues, create the feature branch, and open the enhancement issue the next module builds on.</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>Create the repository on GitHub first, so you have a remote URL to push to later. In your browser, go to GitHub and click <strong>New</strong> next to <strong>Top repositories</strong> on the dashboard, or navigate directly to <a href="https://github.com/new" target="_blank"><strong>https://github.com/new</strong></a>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4dcb6e92-1449-4c2d-ac7e-646aced7431c/user_cropped_screenshot_47d399de264a4c4cad851d950d1db368_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4dcb6e92-1449-4c2d-ac7e-646aced7431c/user_cropped_screenshot_47d399de264a4c4cad851d950d1db368_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>On the <strong>Create a new repository</strong> form, click the <strong>Repository name</strong> field and enter <code>finance-app</code> (or your preferred name).</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/7fe08bec-6011-40c1-943b-9b56571a03aa/user_cropped_screenshot_b0ca728d9dcb4b11b8480cca43be9cca_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/7fe08bec-6011-40c1-943b-9b56571a03aa/user_cropped_screenshot_b0ca728d9dcb4b11b8480cca43be9cca_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>In the <strong>Description</strong> field, paste <code>IBM Bob Workshop Finance Dashboard Application</code>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/cd45f3b2-aa41-4aa2-a6b4-a35e12199272/user_cropped_screenshot_2408034f870d4cdc8caaa04f5b712199_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/cd45f3b2-aa41-4aa2-a6b4-a35e12199272/user_cropped_screenshot_2408034f870d4cdc8caaa04f5b712199_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Under <strong>Configuration</strong>, select a visibility. Public or Private is your choice; <strong>Private</strong> was used here.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/aa040b63-4705-4555-abdc-4e5c15369876/user_cropped_screenshot_9a106706675540b4a74711aee3143882_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/aa040b63-4705-4555-abdc-4e5c15369876/user_cropped_screenshot_9a106706675540b4a74711aee3143882_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Confirm <strong>Add README</strong> is toggled <code>Off</code>, and leave <strong>Add .gitignore</strong> on <code>No .gitignore</code> and <strong>Add license</strong> on <code>No license</code>. The repository must stay empty because you are pushing existing code. Then click <strong>Create repository</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/957dad25-325e-41bb-903d-da4a6071ca7b/user_cropped_screenshot_98e3fe08b08e499386612dffa3ebb7df_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/957dad25-325e-41bb-903d-da4a6071ca7b/user_cropped_screenshot_98e3fe08b08e499386612dffa3ebb7df_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>GitHub will land on the <strong>Quick setup</strong> page showing the repository's remote URL, in the form <code>https://github.com/YOUR_USERNAME/finance-app.git</code></p>
+<p><strong>Copy and store it</strong> within a notepad for now, as you will later need to paste it into a git command in <em>Step 6</em>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/9c3f4764-1d8b-401a-aae8-10050b245f5d/user_cropped_screenshot_e6c33946a48547feb9da4a4565ecf59b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/9c3f4764-1d8b-401a-aae8-10050b245f5d/user_cropped_screenshot_e6c33946a48547feb9da4a4565ecf59b_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>Now let Bob assess the workspace. Back in the Bob IDE, with <strong>Agent mode</strong> active, copy and paste the following prompt into the Agentic Sidebar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Inspect the current repository changes, summarize the current implementation status of the finance dashboard, and identify whether the project is ready to be committed and pushed to GitHub.
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/87d8e612-b70b-4950-977f-1571d98d7d57/user_cropped_screenshot_7562ed9ef9054324a3a784382b6c4774_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/87d8e612-b70b-4950-977f-1571d98d7d57/user_cropped_screenshot_7562ed9ef9054324a3a784382b6c4774_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> or press the <strong>Send</strong> button to submit the task.</p>
+<p>Bob will begin calling tools to inspect the repository, and will pause for approval before the first one. The command it proposes is read-only, a look at recent history such as <code>git log --oneline -10</code>. Click <strong>Approve once</strong> to let it run.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/c801d246-89fc-4189-aa1a-ea6621f13e8d/user_cropped_screenshot_31806220e19048c38cdfedcebc8e2d00_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/c801d246-89fc-4189-aa1a-ea6621f13e8d/user_cropped_screenshot_31806220e19048c38cdfedcebc8e2d00_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Bob works through the <strong>Todo List</strong> pinned at the top of the session as it inspects. This is the same validation Todo List Bob completed at the end of <strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 | Build</a></strong>, now showing <strong>6/6</strong> with every item green, and it is the baseline Bob is assessing for delivery readiness:</p>
+<table>
+<thead>
+<tr>
+<th>TASK</th>
+<th>OBJECTIVES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sub-Task 1</strong></td>
+<td>Fix the <code>dev:mock</code> script environment variable (<code>USE_MOCK</code> → <code>VITE_USE_MOCK</code>) and add the <code>validate</code> and <code>test:coverage</code> scripts</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 2</strong></td>
+<td>Extend <code>formatters.test.js</code> with <code>formatVolume</code>, <code>formatIndex</code>, and <code>formatAxisDate</code> suites</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 3</strong></td>
+<td>Add <code>PerformanceBadge.test.jsx</code> covering rendering and the positive, negative, and null states</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 4</strong></td>
+<td>Add <code>RankingStrip.test.jsx</code> covering sort order, all symbols rendered, null-percentage safety, and price display</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 5</strong></td>
+<td>Add <code>WeekChangeSummary.test.jsx</code> covering the chip per symbol, start and end prices, and the empty guard</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 6</strong></td>
+<td>Run the full validation suite and confirm all checks pass</td>
+</tr>
+</tbody>
+</table>
+<p>Bob reruns the validation suite against the code on disk, explores the source folders, then checks what git would exclude. It finds <strong>no root-level <code>.gitignore</code></strong>, meaning <code>node_modules/</code>, <code>dist/</code>, and <code>.DS_Store</code> would all be committed, and may try to create the file itself.</p>
+<p>Rather than approving each remaining inspection command one at a time, click <strong>Approve for task</strong> so Bob can finish the assessment without stopping at every read-only command.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/7d6af821-e14e-40c8-9a1a-e90bb1f7e367/user_cropped_screenshot_cf14302fa0874260a137f57a9ecb81a7_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/7d6af821-e14e-40c8-9a1a-e90bb1f7e367/user_cropped_screenshot_cf14302fa0874260a137f57a9ecb81a7_text_export.jpeg" alt="" width="600"></a>
+</p>
+<div class="admonition warning">
+<p class="admonition-title">IF BOB CANNOT WRITE THE <code>.gitignore</code></p>
+<p>Bob may report <code>Failed to write file .gitignore</code> because the workspace's own protection blocks writes to a root-level gitignore. This is not a problem. <em>Step 5</em> below creates the file from the terminal instead.</p>
+</div>
+<p>Bob will inspect the workspace and report two kinds of findings:</p>
+<div class="admonition quote">
+<ul>
+<li><strong>Code readiness</strong>: Bob reruns the validation gates and reports the results, for example <code>npm run lint</code> with zero errors, the full test suite passing, and a clean build.</li>
+<li><strong>Delivery blockers</strong>: expect Bob to point out that the workspace is <strong>not yet a git repository</strong> (commands like <code>git status</code> return <code>fatal: not a git repository</code>) and that <strong>no <code>.gitignore</code> exists</strong>, which means <code>node_modules/</code> (thousands of files) and <code>dist/</code> would be committed. This is normal. Part 1 never initialized version control, and steps 5 through 7 below fix both findings.</li>
+</ul>
+</div>
+<p>When the assessment finishes, Bob produces the delivery artifact: a numbered, copy-paste sequence of the exact git commands for the push, ending with a staging check, the commit, and the push itself.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/294a6452-a084-4ea6-91b4-2f0ca9e860f3/sps-redacted-92feaab666634cde8c2bd3ea56f2af4d_8746d22528be499eaa62347a191d1d7d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/294a6452-a084-4ea6-91b4-2f0ca9e860f3/sps-redacted-92feaab666634cde8c2bd3ea56f2af4d_8746d22528be499eaa62347a191d1d7d_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Read the tail of that artifact carefully, because the next steps reuse it:</p>
+<ul>
+<li>A <strong>staging check</strong> (<code>git status</code> and <code>git diff --staged --stat</code>) with an explicit reminder that <code>node_modules</code> and <code>dist</code> must <strong>not</strong> appear in the staged set</li>
+<li>A <strong>commit message</strong> in conventional-commit form, for example <code>feat: add initial React finance dashboard application</code>, with a body covering the five tracked companies, the three time-window views, the data layer, the passing test count, and the CI workflow</li>
+<li>The <strong>push command</strong>, <code>git push -u origin &lt;branch&gt;</code></li>
+<li>A closing note that once the push lands, the CI workflow under <code>.github/workflows/</code> runs automatically: it installs dependencies, lints, runs the test suite with <code>VITE_USE_MOCK=true</code>, builds, and uploads <code>dist/</code> as a workflow artifact</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>Ask Bob for the delivery artifacts you will use during the push and later on GitHub. Copy and paste the following prompt into the <strong>Agentic Sidebar</strong>, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the instructions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Generate a concise summary of the finance dashboard implementation, propose a commit message, and prepare a pull request description that explains the new application, dashboards, and validation steps.
+</code></pre></div>
+<p>Bob will pause for approval before its first tool call. The command is read-only, a <code>find</code> over <code>finance-app/src</code> that lists the source files so the summary is grounded in what is actually on disk. Click <strong>Approve once</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1d6a34fe-883c-4df7-87d3-c040803e7ce9/user_cropped_screenshot_353fb38a6dd443d5892213c6a90762e4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1d6a34fe-883c-4df7-87d3-c040803e7ce9/user_cropped_screenshot_353fb38a6dd443d5892213c6a90762e4_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Bob reruns the validation chain, reports <strong>Live validation confirmed</strong>, and produces the three deliverables as a single self-contained HTML report, the same way it produced the implementation plan in Part 1. Alongside the report, Bob posts a plain-text summary in the sidebar so you can read the essentials without opening anything.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/b9613150-d440-4b11-b2c5-4c489880577e/sps-redacted-1a3cad87a31f45d8b8b6e5f4753da591_91bb709dac4649278215438c8a41bdc8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/b9613150-d440-4b11-b2c5-4c489880577e/sps-redacted-1a3cad87a31f45d8b8b6e5f4753da591_91bb709dac4649278215438c8a41bdc8_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The sidebar summary describes what was built in one paragraph, then quantifies it under <strong>By the numbers</strong>: 47 source files in <code>src/</code>, 2 server files, 2 GitHub delivery artifacts, <strong>114 tests passing</strong> across 7 suites (75 unit plus 39 component render), a production build producing 7 split chunks, and <code>npm run validate</code> exiting 0.</p>
+<p>It then tells you where each artifact goes, which is the part that matters for the rest of this module:</p>
+<table>
+<thead>
+<tr>
+<th>ARTIFACT</th>
+<th>WHERE IT GOES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commit message</strong> (section 2)</td>
+<td>Into <code>git commit -m "..."</code>. The full multi-line body is already formatted for a standard git commit</td>
+</tr>
+<tr>
+<td><strong>PR description</strong> (section 3)</td>
+<td>Pasted into the GitHub PR body when the pull request is opened from <code>feature/initial-finance-dashboard</code> into <code>main</code></td>
+</tr>
+</tbody>
+</table>
+<p>Bob also notes that once the branch is pushed, the CI workflow at <code>.github/workflows/finance-app-ci.yml</code> runs the identical <strong>lint → test → build</strong> chain and uploads the <code>dist/</code> folder as a downloadable artifact for reviewers.</p>
+<p>Now click <strong>Open</strong> on the <strong>Finance Dashboard — Commit &amp; PR Package</strong> card to review the full report in the IDE. The report is written to a temporary <code>bob-artifacts/</code> directory, so open it before starting a new task.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/a91436e9-faf0-48e7-b55a-8d28832dd292/user_cropped_screenshot_b3c139e00f57450490b2a311a443b1ce_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/a91436e9-faf0-48e7-b55a-8d28832dd292/user_cropped_screenshot_b3c139e00f57450490b2a311a443b1ce_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The report opens with a <strong>Validation live run</strong> panel confirming the three gates Bob just executed against the code on disk: lint reporting <strong>0 errors and 0 warnings</strong>, <strong>every test in the suite passing</strong>, and a <strong>clean production build with no warnings</strong>. Below the panel, the report is organized into numbered sections.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/753f6590-eada-495a-a200-042a9ff1d1b2/user_cropped_screenshot_603e21f4dd514b69a50500a46d26500b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/753f6590-eada-495a-a200-042a9ff1d1b2/user_cropped_screenshot_603e21f4dd514b69a50500a46d26500b_text_export.jpeg" alt="" width="600"></a>
+</p>
+<div class="admonition note">
+<ul>
+<li><strong>1 · Implementation summary</strong>: what the <code>finance-app/</code> directory delivers — a complete React 18 market analytics dashboard tracking IBM against Microsoft, Oracle, SAP, and Salesforce, with a lightweight Express proxy isolating the browser from third-party API concerns and an offline mock mode (<code>VITE_USE_MOCK=true</code>) that lets the full UI run with no network access, used by the dev server, the tests, and CI.</li>
+<li><strong>Three views</strong>: a table mapping each time window to what it shows and the components that render it — <strong>Today</strong> (<code>RankingStrip</code>, <code>SummaryCard</code>), <strong>Last 7 Days</strong> (<code>LineChart</code>, <code>WeekChangeSummary</code>), and <strong>Last Quarter</strong> (<code>AreaChart</code> in base-100 index mode, so IBM at ~$175 and MSFT at ~$415 sit on the same Y axis).</li>
+<li><strong>Source file inventory</strong>: a layer-by-layer table of config, constants, utilities, data service, state, components, and tests, naming the files in each layer and the responsibility it carries.</li>
+<li><strong>2 · Commit message</strong> and <strong>3 · Pull request description</strong>: the two artifacts you carry forward.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">YOUR NUMBERS WILL DIFFER</p>
+<p>Those three green results are the substance of the report. The run shown here reports 114 tests across 7 suites, but the exact counts and timings depend on what <strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 | Build</a></strong> produced on your machine and are not something to match.</p>
+</div>
+<p>Keep both artifacts handy: the commit message is used in <em>Step 7</em>, and the PR description is used when a pull request is opened on GitHub.</p>
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>Time to fix the blockers Bob found. Open a new Terminal in the IDE (<strong>Terminal → New Terminal</strong>) and create the <code>.gitignore</code> at the workspace root, so dependencies and build artifacts never enter version control:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat &gt; .gitignore &lt;&lt;'EOF'
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>node_modules/
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>dist/
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>.DS_Store
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>.env
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>coverage/
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>EOF
+</code></pre></div>
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>
+<p>You will next need to execute the complete code block <strong><em>after</em></strong> making modifications.</p>
+<ul>
+<li>Copy and paste the code block below to a notepad for editing</li>
+<li>Retrieve the GitHub <strong>repository remote URL</strong> that you recorded earlier in <em>Step 1</em></li>
+<li>Substitute the <code>&lt;REMOTE_URL&gt;</code> placeholder token with your <em>repository remote URL</em></li>
+<li>Copy and paste the modified code block into the <strong>Terminal</strong> console and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Initialize the repository
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git init
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># Connect the GitHub remote
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="hll">git remote add origin &lt;REMOTE_URL&gt;
+</span><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Verify the remote was added
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>git remote -v
+</code></pre></div>
+</li>
+</ol>
+<hr>
+<ol start="7">
+<li>
+<p>Stage, commit, name the default branch, and finally push it. Use the commit message Bob proposed in <em>Step 4</em>.</p>
+<ul>
+<li>Copy and paste the code block below to a notepad for editing</li>
+<li>Retrieve the <strong>commit message</strong> that IBM Bob recommended earlier in <em>Step 4</em></li>
+<li>Substitute the <code>&lt;COMMIT_MESSAGE&gt;</code> placeholder token with the message from <em>Step 4</em></li>
+<li>Copy and paste the modified code block into the <strong>Terminal</strong> console and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Stage everything
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git add .
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a># IMPORTANT: confirm node_modules and dist do NOT appear in the staged list
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>git status
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a># Commit using the message Bob proposed
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="hll">git commit -m "&lt;COMMIT_MESSAGE&gt;"
+</span><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a># Name the default branch main
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>git branch -M main
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a># Push to GitHub
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>git push -u origin main
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/3523adbd-7f17-40fb-bd7a-5ad9fd1cf154/sps-redacted-b35ea47406614f64bcb9ed53ecd455bd_09f2efb979644569814f90c8494e80cd_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/3523adbd-7f17-40fb-bd7a-5ad9fd1cf154/sps-redacted-b35ea47406614f64bcb9ed53ecd455bd_09f2efb979644569814f90c8494e80cd_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The commit output lists every file as <code>create mode 100644 ...</code>, so read it and confirm that only source files are being tracked. The push output then reports the objects written and ends with the two lines that confirm the publish succeeded:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>* [new branch]      main -&gt; main
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Branch 'main' set up to track remote branch 'main' from 'origin'.
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">RENAME THE BRANCH <em>AFTER</em> THE FIRST COMMIT</p>
+<p><code>git branch -M main</code> renames the branch you are currently on. Immediately after <code>git init</code> there are no commits yet, so that branch does not exist as a reference and the rename fails with <code>error: refname refs/heads/master not found</code>. Git 2.30 and later handle this case, but older versions do not, so this workshop renames the branch after the commit. This is also the order GitHub's own <strong>Quick setup</strong> page uses.</p>
+<p>If you have already hit the error, either commit first and then rerun <code>git branch -M main</code>, or point <code>HEAD</code> at the branch directly with <code>git symbolic-ref HEAD refs/heads/main</code>.</p>
+</div>
+<details class="warning">
+<summary>TROUBLESHOOTING: AUTHENTICATION ISSUES</summary>
+<p>GitHub no longer accepts account passwords over HTTPS. If the push prompts for credentials, use a <strong>Personal Access Token (PAT)</strong> in place of the password, or configure <strong>SSH keys</strong> and use the SSH remote URL instead. See <a href="https://docs.github.com/en/authentication" target="_blank">GitHub's authentication documentation</a> for both paths.</p>
+<p>If the push is <strong>rejected</strong>, confirm you have write access to the repository, check that no branch protection rule is blocking the push, and verify the remote URL with <code>git remote -v</code>.</p>
+</details>
+</li>
+</ol>
+<hr>
+<ol start="8">
+<li>
+<p>Verify the published repository in your browser. Refresh the repository page on GitHub.com and confirm:</p>
+<ul>
+<li>All files from <em>Part 1</em> are visible: the application source, the docs, and the PR template</li>
+<li><code>node_modules/</code> and <code>dist/</code> are <strong>not</strong> in the file tree</li>
+<li>The <strong>Finance App CI</strong> workflow is listed under the <strong>Actions</strong> tab</li>
+<li>The pull request template is visible at <code>.github/PULL_REQUEST_TEMPLATE.md</code></li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/c2fae477-25cb-4241-b296-1a06844c2804/user_cropped_screenshot_6530b4c345494320ac2257da13f0a92d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/c2fae477-25cb-4241-b296-1a06844c2804/user_cropped_screenshot_6530b4c345494320ac2257da13f0a92d_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Open the repository from your GitHub dashboard.</p>
+<ul>
+<li>The repository home page should show a single commit carrying Bob's commit message, on one branch, with the root file tree: <code>.github/</code>, <code>docs/</code>, <code>finance-app/</code>, <code>.gitignore</code>, <code>LICENSE</code>, <code>README.md</code>, and the workshop markdown files.</li>
+<li>Confirm that <code>node_modules/</code> and <code>dist/</code> are <strong>not</strong> included within that list (the <code>.gitignore</code> you created in <em>Step 5</em> is what kept them out)</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/f2d4321d-5aea-4814-a2c4-6f0935837e91/user_cropped_screenshot_6ac6ed0f08684ed8a85490771e726010_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/f2d4321d-5aea-4814-a2c4-6f0935837e91/user_cropped_screenshot_6ac6ed0f08684ed8a85490771e726010_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Click into <code>finance-app/</code> and check the application directory the same way. You should see <code>public/</code>, <code>server/</code>, <code>src/</code>, and the config files (<code>.eslintrc.cjs</code>, <code>index.html</code>, <code>package.json</code>, <code>package-lock.json</code>, <code>vite.config.js</code>), with no <code>node_modules/</code> and no <code>dist/</code>.</p>
+<div class="admonition warning">
+<p>Note that <code>package-lock.json</code> <strong>is</strong> committed, which is what lets CI run a reproducible <code>npm ci</code>.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/a1a5be71-3450-4521-bd42-057be7ea2058/sps-redacted-5459d8837d61490fa6c440aa0494f91a_a7d56e617e7c4565b1363aec488e1080_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/a1a5be71-3450-4521-bd42-057be7ea2058/sps-redacted-5459d8837d61490fa6c440aa0494f91a_a7d56e617e7c4565b1363aec488e1080_text_export.jpeg" alt="" width="600"></a>
+</p>
+<div class="admonition note">
+<p class="admonition-title">NO WORKFLOW RUNS YET — AND THAT IS EXPECTED</p>
+<p>The <strong>Actions</strong> tab will list <strong>Finance App CI</strong> in the left sidebar but report <strong>There are no workflow runs yet</strong>. GitHub detects the workflow by parsing <code>.github/workflows/finance-app-ci.yml</code> on the default branch; detecting it is not the same as running it.</p>
+<p>The workflow is deliberately scoped to the delivery paths that matter, and a direct push to <code>main</code> is not one of them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'feature/**'</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'fix/**'</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'chore/**'</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+</code></pre></div>
+<p>The first run arrives in <em>Step 9</em>, when the <code>feature/initial-finance-dashboard</code> branch is pushed and matches <code>feature/**</code>.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/bfde1197-8390-469d-a27c-1a0f0ff468f0/sps-redacted-30991c26e1c849bf8a0a518f72d1bccf_41ef3ace018f4a6f8693ee4cb4f4570a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/bfde1197-8390-469d-a27c-1a0f0ff468f0/sps-redacted-30991c26e1c849bf8a0a518f72d1bccf_41ef3ace018f4a6f8693ee4cb4f4570a_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Then go to <strong>Settings → General</strong> and scroll to the <strong>Features</strong> section.
+    - Confirm the <strong>Issues</strong> checkbox is ticked, since the feature request workflow in the next module depends on it.
+    - Leave <strong>Issue permissions</strong> on the default, <code>Creation allowed by: All users</code>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/24571a1b-f293-4bd2-94a6-fbbadce443e2/user_cropped_screenshot_645e6344630e4b11b595417042e21e07_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/24571a1b-f293-4bd2-94a6-fbbadce443e2/user_cropped_screenshot_645e6344630e4b11b595417042e21e07_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="9">
+<li>
+<p>Create the feature branch for the workshop. Feature work never lands on <code>main</code> directly; it travels on its own branch and arrives through a pull request. Back in the IDE terminal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Create and switch to a new feature branch
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git checkout -b feature/initial-finance-dashboard
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># Push the branch to GitHub
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>git push -u origin feature/initial-finance-dashboard
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-04/bb75ad09-8a37-4ebc-8aa7-9d394d60a2d6/user_cropped_screenshot_6e27c3518bab4a3bbdf3c8e3c55fb3c0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-04/bb75ad09-8a37-4ebc-8aa7-9d394d60a2d6/user_cropped_screenshot_6e27c3518bab4a3bbdf3c8e3c55fb3c0_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The terminal confirms the switch with <code>Switched to a new branch 'feature/initial-finance-dashboard'</code>. At that point the branch exists only locally; the <code>git push</code> that follows is what publishes it.</p>
+<p>This push is what starts CI. The branch name matches the <code>feature/**</code> pattern in the workflow trigger, so return to the repository on GitHub and click the <strong>Actions</strong> tab. The repository header should now read <strong>2 Branches</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/57056eda-de3c-40b4-9144-4fdb1b3c4c42/user_cropped_screenshot_decaaec4bb9d464db42a8e634c91f22f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/57056eda-de3c-40b4-9144-4fdb1b3c4c42/user_cropped_screenshot_decaaec4bb9d464db42a8e634c91f22f_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Where the Actions tab reported no runs in <em>Step 8</em>, it now shows <strong>1 workflow run</strong>, titled with your commit message and labelled <code>Finance App CI #1</code>, with the commit hash, your username, and the <code>feature/initial-finance-dashboard</code> branch it ran against.</p>
+<p><strong>Click</strong> the run to open it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/41e35334-dded-4d93-a237-7bae52f00c15/user_cropped_screenshot_5a452bc541734c6b9d4aae7643580504_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/41e35334-dded-4d93-a237-7bae52f00c15/user_cropped_screenshot_5a452bc541734c6b9d4aae7643580504_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The run summary is what this entire module has been building toward. Confirm:</p>
+<ul>
+<li><strong>Triggered via push</strong> on <code>feature/initial-finance-dashboard</code>, with <strong>Status: Success</strong></li>
+<li>The single <code>Lint → Test → Build</code> job carrying a green check, completing in well under a minute</li>
+<li><strong>Artifacts: 1</strong>, listing <code>finance-app-dist</code>, the built <code>dist/</code> folder uploaded by the workflow's final step and downloadable by any reviewer</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/2dcc0441-8ce7-47a8-b190-4f4b958863b4/screenshot_c83e514a710743c5a9057fe6960aeda4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/2dcc0441-8ce7-47a8-b190-4f4b958863b4/screenshot_c83e514a710743c5a9057fe6960aeda4_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>The same gates Bob ran locally in <em>Step 3</em> and <em>Step 4</em> have now run on a clean machine, against the code as GitHub received it. That is the point of pushing to a branch first: the validation is no longer taking your word for it.</p>
+<div class="admonition warning">
+<p class="admonition-title">AN ANNOTATION WARNING IS NOT A FAILURE</p>
+<p>The run may show <strong>Annotations: 1 warning</strong> reporting that Node.js 20 is deprecated and that <code>actions/checkout</code>, <code>actions/setup-node</code>, and <code>actions/upload-artifact</code> are being forced onto a newer Node.js runtime. This is GitHub deprecating the runtime its own actions run on rather than a problem with the finance dashboard. The job status is still <strong>Success</strong>, and the workshop continues unchanged.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">BRANCH NAMING CONVENTIONS</p>
+<p>A consistent branch naming convention keeps AI assisted work traceable alongside human work. This workshop uses the pattern most teams will recognize:</p>
+<ul>
+<li><code>feature/initial-finance-dashboard</code> (created just now, the published baseline)</li>
+<li><code>feature/user-selected-company-chart</code> (created in the next module, carries the enhancement)</li>
+<li><code>fix/chart-data-normalization</code> (the shape a future bug fix would take)</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="10">
+<li>
+<p>Finally, open the issue that drives the next module. Click the <strong>Issues</strong> tab in the repository header, then click <strong>New issue</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/0d4a618a-e5b0-4f12-86a9-261bb86d5eff/user_cropped_screenshot_9148cfb2bad04ac7a544e4b76febbb63_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-10/0d4a618a-e5b0-4f12-86a9-261bb86d5eff/user_cropped_screenshot_9148cfb2bad04ac7a544e4b76febbb63_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>On the <strong>Create new issue</strong> form, fill in:</p>
+<ul>
+<li><strong>Add a title</strong>: <code>Add a graph for a user selected company</code></li>
+<li><strong>Add a description</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Add a new graph based on a company indicated by the user.
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>* Allow the dashboard to accept a stock symbol or company selection
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>* Render an additional comparison chart for the selected company
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>* Invalid or unsupported symbols should produce a clear message to the user
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>* The existing dashboards for IBM and its competitors must remain unchanged
+</code></pre></div>
+<details class="warning">
+<summary>WHY IS THE BODY WRITTEN THIS WAY?</summary>
+<p>The <strong>description</strong> is deliberately written as an outcome plus four constraints rather than as a set of implementation instructions. It says what the user should be able to do, what must appear, how failure should behave, and what must not regress. That is enough for Bob to plan against, and it leaves the design decisions where they belong. Notice that the last bullet is a guard: it tells Bob what success must <em>not</em> break.</p>
+</details>
+<ul>
+<li>Leave <strong>Assignees</strong>, <strong>Labels</strong>, <strong>Projects</strong>, and <strong>Milestone</strong> empty (Bob reads the title and body, and nothing else here changes what it does in the next module)</li>
+<li>When ready to continue, click <strong>Create</strong></li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/9bb1a4c1-6aac-422d-918a-9255c4f14b88/user_cropped_screenshot_10a17b18ea56483f8b4a44e14a1a39b9_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/9bb1a4c1-6aac-422d-918a-9255c4f14b88/user_cropped_screenshot_10a17b18ea56483f8b4a44e14a1a39b9_text_export.jpeg" alt="" width="600"></a>
+</p>
+<div class="admonition warning">
+<p>Note the issue number GitHub assigns (typically <code>#1</code>). Bob will fetch this issue by number in the next module.</p>
+</div>
+</li>
+</ol>
+<hr>
+<h2 id="iii-verification-checklist"><strong>iii. Verification checklist</strong></h2>
+<p>Before moving on, confirm every row. The next two modules assume all of this is in place:</p>
+<table>
+<thead>
+<tr>
+<th>CHECK</th>
+<th>WHAT TO CONFIRM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub repository created and accessible</td>
+<td>Repository page loads at <code>github.com/YOUR_USERNAME/finance-app</code></td>
+</tr>
+<tr>
+<td><code>.gitignore</code> in place</td>
+<td><code>node_modules/</code> and <code>dist/</code> absent from the GitHub file tree</td>
+</tr>
+<tr>
+<td>Local git repository initialized</td>
+<td><code>git status</code> reports a branch, not an error</td>
+</tr>
+<tr>
+<td>Local repository connected to the GitHub remote</td>
+<td><code>git remote -v</code> shows <code>origin</code></td>
+</tr>
+<tr>
+<td>Code pushed to GitHub successfully</td>
+<td><strong><a href="https://bienko.github.io/bob-sdlc/build-1/" target="_blank">Part 1 Build</a></strong> files visible on the <code>main</code> branch</td>
+</tr>
+<tr>
+<td>CI workflow detected</td>
+<td><strong>Actions</strong> tab lists <strong>Finance App CI</strong>, with no runs until the feature branch is pushed</td>
+</tr>
+<tr>
+<td>Issues and Pull Requests enabled</td>
+<td><strong>Settings → General → Features</strong></td>
+</tr>
+<tr>
+<td>Feature branch created and pushed</td>
+<td><code>feature/initial-finance-dashboard</code> visible on GitHub</td>
+</tr>
+<tr>
+<td>CI run green</td>
+<td><strong>Actions</strong> shows a passing <strong>Finance App CI</strong> run for the feature branch</td>
+</tr>
+<tr>
+<td>Enhancement issue created</td>
+<td>Issue <code>#1</code> open in the <strong>Issues</strong> tab</td>
+</tr>
+</tbody>
+</table>
+<h2 id="iv-key-takeaways"><strong>iv. Key takeaways</strong></h2>
+<ul>
+<li>Publishing happens in a fixed order: create the empty GitHub repository, let Bob confirm readiness, initialize the local repository, then push. Each step depends on the one before it.</li>
+<li>Bob catches delivery blockers a developer might miss, like a missing <code>.gitignore</code> that would commit thousands of dependency files, and prepares the exact commands to fix them.</li>
+<li>The developer performs the push. Bob prepares the delivery, but the repository remains under your control.</li>
+<li>Feature work travels on branches, never directly on <code>main</code>. The baseline branch exists now, and the enhancement gets its own branch in the next module.</li>
+<li>An issue is the entry point of the evolution loop. The next module starts from issue <code>#1</code> rather than from a prompt written from scratch.</li>
+</ul>
+<p>
+The next module is the central demonstration of the lab. In <a href="https://bienko.github.io/bob-sdlc/evolve-2/" target="_blank"><strong>Implementing a Feature Request</strong></a>, Bob will fetch the issue you just created, analyze the requested scope, implement the new company chart, and validate the result.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../build-2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1.2 Building and validating the dashboards">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1.2 Building and validating the dashboards
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../evolve-2/" class="md-footer__link md-footer__link--next" aria-label="Next: 2.2 Implementing a feature request">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2.2 Implementing a feature request
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
