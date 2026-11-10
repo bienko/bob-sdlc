@@ -1,0 +1,1047 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GitHub SDLC Automation with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../build-1/">
+      
+      
+        <link rel="next" href="../evolve-1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.2 Building and validating the dashboards - GitHub SDLC Automation with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-validating-the-dashboards" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-header__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub SDLC Automation with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.2 Building and validating the dashboards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-nav__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    GitHub SDLC Automation with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup and registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Planning and scaffolding the application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Building and validating the dashboards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Building and validating the dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-building-and-validating-the-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Building and validating the dashboards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-reviewing-the-completed-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Reviewing the completed build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Evolve
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Evolve
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Publishing to GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Implementing a feature request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Preparing a pull request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-building-and-validating-the-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Building and validating the dashboards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-reviewing-the-completed-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Reviewing the completed build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>PART 1 | BUILD</strong></p>
+<h1 id="building-and-validating-the-dashboards"><strong>BUILDING AND VALIDATING THE DASHBOARDS</strong></h1>
+<hr>
+<h2 id="i-why-this-matters"><strong>i. Why this matters</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/4%20Building%20and%20Validating%20the%20Dashboards%20%5BBob%20SDLC%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Building and Validating the Dashboards</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCTT73RR3HbPXG2MF7q3bPJ33HFB" target="_blank">[2 min]</a></strong></p>
+</div>
+<p>The scaffold from the previous module runs, but it doesn't yet deliver any business value. The <code>Current Day</code> view renders mock quotes, and the <code>Last 7 Days</code> and <code>Last Quarter</code> tabs are empty.</p>
+<p>Turning that scaffold into a real dashboard is where most of the engineering work actually lives. The data service has to fetch and normalize live market data. The views have to render summary cards and comparison charts across three time windows. And once the app is doing something real, it needs to survive the kinds of runtime failures that only surface when a live API is on the other end — missing tickers, environment-variable misreads, transient network errors.</p>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>Take note of two working patterns from the previous course as they reappear here. The screenshot-driven debugging pass is evidence-grounded delegation: Bob diagnoses against the failing UI and against the code on disk, exactly as you practiced in <strong>Module 2 | Delegate</strong>. And the closing diff review — together with the commit message and pull request description it produces — translates that same discipline into delivery form: the developer reads what changed, decides what it means, and approves what ships.</p>
+</div>
+<p>In this module, you will use IBM Bob to integrate the Yahoo Finance data layer, fill in the three dashboard views, optionally enable the live proxy, debug a real runtime error using a screenshot as evidence, and prepare a review-ready commit and pull request description for GitHub delivery.</p>
+<p>Pay attention to how Bob operates in the middle of the loop — reading the existing scaffold, extending it deliberately, and diagnosing failures with the current file contents in hand rather than guessing.</p>
+<hr>
+<h2 id="ii-building-and-validating-the-dashboards"><strong>ii. Building and validating the dashboards</strong></h2>
+<p>You will move through this module in <strong>four phases</strong>: data integration, dashboard views, optional live-data enablement, and a debug-and-review pass. Each phase builds on the previous one and stays inside the folder layout you approved in the plan.</p>
+<hr>
+<ol>
+<li>
+<p>With <strong>Agent mode</strong> still active, ask Bob to implement the finance data layer. Copy and paste the following prompt into the Agentic Sidebar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Implement a finance data layer for IBM and its main competitors using Yahoo Finance data. Normalize the returned data so the UI can display quote summaries, short-term history, and quarterly trend views. Keep the code easy to extend if more companies need to be added later.
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/4b056b7a-04d2-4102-a961-e3fcb123e635/user_cropped_screenshot_9e12f40c91614bfdb1818b8f12e36a85_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/4b056b7a-04d2-4102-a961-e3fcb123e635/user_cropped_screenshot_9e12f40c91614bfdb1818b8f12e36a85_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p>Press the <strong>Send</strong> button to submit the task.</p>
+<p>Bob will extend the existing <code>financeService</code>, <code>yahooAdapter</code>, and <code>mockData</code> files, add new domain types for extended quote summaries and normalized history points, run the test suite, and confirm the lint and build gates are clean.</p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>With the data layer in place, ask Bob to build the three dashboard views. Copy and paste the following prompt:</p>
+<div class="admonition warning">
+<p>`
+Build 2 to 3 dashboard views for the finance application:
+- current day market summary
+- last 7 days trend comparison
+- last quarter comparison view</p>
+<p>Include IBM and up to four competitors. Use charts and summary cards where appropriate. Keep the UI simple, readable, and demo-friendly.
+`</p>
+</div>
+<p>Bob will fill in <code>CurrentDayView</code>, <code>WeekView</code>, and <code>QuarterView</code> — the IBM spotlight card, competitor grid, ranked performance bars, normalized line chart, and quarterly area chart with a sortable ranking table — then re-run validation.</p>
+<div class="admonition tip">
+<p class="admonition-title">MODE SELECTION</p>
+<p>If a <strong>Carbon React</strong> mode is available in your Bob build, selecting it before submitting this prompt will tighten the visual result — the generated components inherit IBM Carbon Design System tokens and spacing rather than plain CSS.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/e7a03164-8b9a-4311-abfb-688ac6dccc12/user_cropped_screenshot_4c44ce612397401fa328ad0e374223e3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/e7a03164-8b9a-4311-abfb-688ac6dccc12/user_cropped_screenshot_4c44ce612397401fa328ad0e374223e3_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>At this point, the app still runs entirely on deterministic mock fixtures. If you want to see the dashboard against real market data, Bob provides an optional two-terminal workflow. Otherwise, skip ahead to <em>Step 8</em>.</p>
+<p>The live-data path uses two terminals: one for the Yahoo Finance proxy, one for the dev server with mock mode turned off.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/5c769181-c1a4-456a-941b-46b165767670/user_cropped_screenshot_e15f32f7832b44cc9386ef933074496c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/5c769181-c1a4-456a-941b-46b165767670/user_cropped_screenshot_e15f32f7832b44cc9386ef933074496c_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>Open a second terminal for the proxy. From the menu bar:</p>
+<p><strong>Terminal → New Terminal</strong></p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/fda04eed-c9d3-48e5-adcc-af6ce2fafa15/user_cropped_screenshot_b6824a3e8ce44cada0e042c6422fbf31_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/fda04eed-c9d3-48e5-adcc-af6ce2fafa15/user_cropped_screenshot_b6824a3e8ce44cada0e042c6422fbf31_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>In the new terminal, install the proxy dependencies and start it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd finance-app
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>npm install yahoo-finance2 express
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>npm run proxy
+</code></pre></div>
+<p>The Express proxy starts at <code>http://127.0.0.1:3001</code> and forwards <code>/api/finance/*</code> calls to Yahoo Finance.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/6458a146-b8bf-4dda-be82-3363dc88c4b4/user_cropped_screenshot_4e6df9bb390a4b19b7c692222db19618_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/6458a146-b8bf-4dda-be82-3363dc88c4b4/user_cropped_screenshot_4e6df9bb390a4b19b7c692222db19618_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>
+<p>Split the terminal so you can run the dev server side by side. Click the <strong>split</strong> icon in the terminal header, or from the dropdown next to the <strong>+</strong> button, choose <strong>Split Terminal</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/acc53a58-5025-4ee9-be34-2fec702ba803/user_cropped_screenshot_41ee23572aeb45c383ed06db79fe9658_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/acc53a58-5025-4ee9-be34-2fec702ba803/user_cropped_screenshot_41ee23572aeb45c383ed06db79fe9658_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="7">
+<li>
+<p>In the second pane, start the dev server with mock mode turned off:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd finance-app
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>VITE_USE_MOCK=false npm run dev
+</code></pre></div>
+<p>Vite will forward <code>/api/finance/*</code> requests to the proxy. Reload the dashboard in your browser.</p>
+<div class="admonition warning">
+<p class="admonition-title">PROXY MUST START FIRST</p>
+<p>The proxy must be listening on port 3001 <strong>before</strong> the dev server is started, or API calls will return 502 errors. If you see a retry banner in the app, the proxy is not reachable.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/5317c22a-eea6-421c-8cb6-9177c0d00b60/user_cropped_screenshot_1405edfaaf0f403396202a46828abb18_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/5317c22a-eea6-421c-8cb6-9177c0d00b60/user_cropped_screenshot_1405edfaaf0f403396202a46828abb18_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="8">
+<li>
+<p>This is where a real-world runtime failure shows up. When the dashboard loads against the live proxy, the Current Day view may render an error banner: <strong>Unable to load market summaries. Please try again.</strong></p>
+<p>Rather than debugging this by hand, give the error to Bob. Take a screenshot of the browser, attach it to a new Bob task, and describe the issue in plain language.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/f5ba2df3-5c69-4ede-bf04-3f8007d3eecd/user_cropped_screenshot_f8d548c560374aa98af267d16d4ca6fb_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/f5ba2df3-5c69-4ede-bf04-3f8007d3eecd/user_cropped_screenshot_f8d548c560374aa98af267d16d4ca6fb_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="9">
+<li>
+<p>Attach the screenshot and enter a prompt like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>I tried launching the application. It has an error. I attached the screenshot for your reference.
+</code></pre></div>
+<p>Bob will inspect the screenshot, cross-reference the running code, and trace the error to the environment-variable check inside <code>financeService.ts</code>. Approve any commands Bob needs to run for diagnosis.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/aa6a7bfd-bc6a-4fb1-bc03-504d5c785904/user_cropped_screenshot_56412b5f18804dceb784269bd3fff1f7_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/aa6a7bfd-bc6a-4fb1-bc03-504d5c785904/user_cropped_screenshot_56412b5f18804dceb784269bd3fff1f7_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="10">
+<li>
+<p>Bob will apply the fix — flipping the mock-mode check from opt-in (<code>=== 'true'</code>) to opt-out (<code>!== 'false'</code>) so a missing or undefined value defaults to safe mock mode instead of accidentally hitting the network — update the tests, and re-run validation.</p>
+<p>A <strong>What was wrong and what's fixed</strong> summary appears in the sidebar, explaining the Vite client-side env-injection race that caused the runtime failure.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/6172b586-eb20-4340-95b5-e92c2f614bad/user_cropped_screenshot_9fbdc2ce9b4644bcbdc5e56ce7c06c17_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/6172b586-eb20-4340-95b5-e92c2f614bad/user_cropped_screenshot_9fbdc2ce9b4644bcbdc5e56ce7c06c17_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="11">
+<li>
+<p>Restart the dev server and reload the dashboard. The <strong>Current Day</strong> view now renders the IBM spotlight card, the four competitor cards with open/prev close/day range/52-week range/market cap/target fields, and matching live data.</p>
+<p>Click through the <strong>Last 7 Days</strong> and <strong>Last Quarter</strong> tabs to confirm the trend chart and area chart both render against live data.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/ddb240a9-aed7-4a4e-9579-649c3d099737/user_cropped_screenshot_13d7e9fd2d7c4b9697697f3cab4513f0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/ddb240a9-aed7-4a4e-9579-649c3d099737/user_cropped_screenshot_13d7e9fd2d7c4b9697697f3cab4513f0_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="12">
+<li>
+<p>With the dashboards working, run one final validation pass to lock in test coverage and prepare the change for delivery. Copy and paste the following prompt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Add appropriate validation for the finance dashboard project. Create tests for the data transformation logic and at least one UI rendering path. Provide commands to run the application checks locally and summarize what success should look like.
+</code></pre></div>
+<p>Bob will add missing unit and component tests, run the full lint/test/build gate, and confirm every gate is clean.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/f8e0ae09-67c4-46c1-ad79-3f922ae2d6fe/user_cropped_screenshot_ca520543f35e4eb78e93e876c4965497_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/f8e0ae09-67c4-46c1-ad79-3f922ae2d6fe/user_cropped_screenshot_ca520543f35e4eb78e93e876c4965497_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="13">
+<li>
+<p>Once validation is green, ask Bob to review the uncommitted diff and prepare the commit and pull request artifacts. Copy and paste:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Review the uncommitted changes in this repository, summarize what was added for the finance dashboard, identify any missing pieces, and prepare a concise commit summary and pull request description for the initial application delivery.
+</code></pre></div>
+<p>Bob will provide a change summary for every meaningful change, flag anything missing, and draft a commit message (plus a PR description.)</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/26db2324-6654-469d-ae82-1c2fdc36b061/user_cropped_screenshot_5515355dc41a48a98fd21255cec12266_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/26db2324-6654-469d-ae82-1c2fdc36b061/user_cropped_screenshot_5515355dc41a48a98fd21255cec12266_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="14">
+<li>
+<p>Bob's PR description covers what shipped, how the data service is wired, how the mock/live seam works, and how to reproduce validation locally — everything a reviewer needs to approve the change.</p>
+<p>Copy the commit message and PR description — you'll paste them into GitHub at the start of <strong>Part 2 | Evolve</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/7e8bcf71-2639-49ca-bd34-9aa803269a91/user_cropped_screenshot.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2JDELI43356LVVTC%2F20260731%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260731T042036Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f825e2557405422fc12cf46477faaa4b2c6b428d7c6f20ff202e4d432fa4d888" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/7e8bcf71-2639-49ca-bd34-9aa803269a91/user_cropped_screenshot.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2JDELI43356LVVTC%2F20260731%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260731T042036Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f825e2557405422fc12cf46477faaa4b2c6b428d7c6f20ff202e4d432fa4d888" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="iii-reviewing-the-completed-build"><strong>iii. Reviewing the completed build</strong></h2>
+<p>Take a moment to review what Bob has produced end-to-end:</p>
+<ul>
+<li>The <strong>data service</strong> normalizes Yahoo Finance responses into a stable domain model that the UI can rely on</li>
+<li>The <strong>mock/live seam</strong> defaults to safe mock mode when the env var is missing or malformed</li>
+<li>The <strong>three dashboard views</strong> cover current-day snapshots, 7-day comparative performance, and quarterly area trends with a sortable ranking table</li>
+<li>The <strong>error path</strong> surfaces a clear retry banner instead of a crash when the proxy is unreachable</li>
+<li>The <strong>test suite</strong> covers data-layer mapping, mock fixture integrity, normalization arithmetic, view rendering, and error states</li>
+<li>The <strong>commit and PR description</strong> are ready to paste into GitHub as-is</li>
+</ul>
+<p>Every layer remains extensible: adding a new company is a one-line change to the <code>COMPANIES</code> registry, and swapping the data source is contained to <code>yahooAdapter.ts</code>. That extensibility is what makes Part 2 possible.</p>
+<hr>
+<h2 id="iv-key-takeaways"><strong>iv. Key takeaways</strong></h2>
+<ul>
+<li>Integration and view work extend the scaffold while leaving its structure intact.</li>
+<li>A mock/live seam that defaults to safe mode prevents accidental network calls in tests and dev.</li>
+<li>Screenshots are a first-class debugging input for Bob — attaching a failing UI is often faster than describing it.</li>
+<li>Test coverage belongs alongside the feature it validates, never deferred to a follow-up commit.</li>
+<li>Bob-generated commit messages and PR descriptions should be reviewed but rarely need to be rewritten.</li>
+<li>The reviewer artifact (PR description) is what Part 2 will iterate on — write it once, well.</li>
+</ul>
+<p>The next module hands the codebase over to GitHub. In <a href="https://pages.github.ibm.com/cdbienko/bob-sdlc/evolve-1/" target="_blank"><strong>Part 2 | Evolve</strong></a>, you will push this branch to a real repository, open an issue for a new feature, and let Bob take the request all the way to a merge-ready pull request.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../build-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1.1 Planning and scaffolding the application">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1.1 Planning and scaffolding the application
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../evolve-1/" class="md-footer__link md-footer__link--next" aria-label="Next: 2.1 Publishing to GitHub">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2.1 Publishing to GitHub
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

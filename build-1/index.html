@@ -1,0 +1,1327 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GitHub SDLC Automation with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+        <link rel="next" href="../build-2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.1 Planning and scaffolding the application - GitHub SDLC Automation with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#planning-and-scaffolding-the-app" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-header__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub SDLC Automation with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.1 Planning and scaffolding the application
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub SDLC Automation with IBM Bob" class="md-nav__button md-logo" aria-label="GitHub SDLC Automation with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    GitHub SDLC Automation with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup and registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Planning and scaffolding the application
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Planning and scaffolding the application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-planning-and-scaffolding-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Planning and scaffolding the application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-reviewing-the-generated-scaffold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Reviewing the generated scaffold
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Building and validating the dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Evolve
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Evolve
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Publishing to GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Implementing a feature request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolve-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Preparing a pull request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-planning-and-scaffolding-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Planning and scaffolding the application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-reviewing-the-generated-scaffold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Reviewing the generated scaffold
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>PART 1 | BUILD</strong></p>
+<h1 id="planning-and-scaffolding-the-app"><strong>PLANNING AND SCAFFOLDING THE APP</strong></h1>
+<hr>
+<h2 id="i-why-this-matters"><strong>i. Why this matters</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/3%20Planning%20and%20Scaffolding%20the%20Application%20%5BBob%20SDLC%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Planning and Scaffolding the Application</em> module for the hands-on enablement. <strong><a href="https://pages.github.ibm.com/cdbienko/bob-sdlc/build-1/" target="_blank">[2 min]</a></strong></p>
+</div>
+<p>Before generating a single line of code, IBM Bob should understand what it is being asked to build. Scaffolding an application without that context tends to produce boilerplate that has to be thrown away — plausible React code that does not match the repository, the workshop goals, or the delivery workflow.</p>
+<p>Modern GitHub-driven engineering follows the opposite pattern. A clear plan is drafted first. Component boundaries, service layers, state management, and validation strategy are agreed up front. Only then does implementation begin, and every file that lands in the repository maps to a decision that was made deliberately.</p>
+<div class="admonition note">
+<p>The application will track IBM and four major competitors — Microsoft, Oracle, SAP, and Salesforce — using Yahoo Finance data across three time windows: current day, last 7 days, and last quarter.</p>
+</div>
+<p>In this module, you will use IBM Bob to inspect the workshop starter repository, produce a structured implementation plan for a React finance dashboard, and then scaffold the application in a shape that supports later GitHub-driven feature evolution.</p>
+<p>Pay attention to how Bob frames the greenfield task as an engineering exercise— folder layout, data-service boundaries, error handling, test strategy —rather than a code-generation shortcut.</p>
+<hr>
+<h2 id="ii-planning-and-scaffolding-the-application"><strong>ii. Planning and scaffolding the application</strong></h2>
+<div class="admonition warning">
+<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<p>Bob's responses are <strong>non-deterministic</strong>, so the plan and file layout produced in your IDE may differ from those shown here. It's also possible that some architectural choices — folder names, chart library, state management approach — will vary from run to run.</p>
+<p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are <em>non-deterministic</em> — unlike the <em>deterministic</em> tools most developers are accustomed to. In practice, that means the same prompt can produce different code from one run to the next. This is both a strength and a quirk of the technology, and it is something to work <em>with</em> rather than against.</p>
+<p><strong>All this is to say: <em>Your results ahead may vary.</em></strong> The key takeaway from these workflows is that you understand how to effectively utilize each of Bob's Modes and where their strengths are best applied. Whether or not you arrive at the exact same codebase at the end is of less importance. Bob will ensure either way that your application works and delivers more-or-less what you asked for. The exact implementation and steps that Bob takes to arrive at that result, however, may differ from the steps documented here.</p>
+</div>
+<p>The starter repository contains only the workshop scaffolding: documentation, a pull request template, and a CI workflow. Everything else, including the React project itself, will be generated by Bob.</p>
+<p><strong>You will move through this module in two phases.</strong> First to ask Bob to analyze the repository and propose an implementation plan. Then to approve the plan and let Bob scaffold the application sub-task by sub-task. By the end of the module, the app will run locally in mock mode and render its first dashboard view.</p>
+<hr>
+<ol>
+<li>
+<p>Open the workshop repository inside the Bob IDE.</p>
+<ul>
+<li>Click the <strong>Explorer</strong> tab along the left edge of the IDE.</li>
+<li>If no folder is currently open, click the <strong>Open Folder</strong> button to expose the file picker.</li>
+<li>Navigate to the <strong>GitHub SDLC Automation</strong> folder from the <strong>Setup</strong> module, select it, and click <strong>Open</strong>.</li>
+<li>Bob will load the workspace, index the repository, and prepare the Agentic Sidebar.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/7c11bb16-e7ea-40e8-8249-0396bdd6389d/user_cropped_screenshot_09035b323c044762902b7d411ca5e8de_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/7c11bb16-e7ea-40e8-8249-0396bdd6389d/user_cropped_screenshot_09035b323c044762902b7d411ca5e8de_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/3f4f909b-7100-4fce-a450-fc107e48f851/user_cropped_screenshot_0845020f08044aa790422c726c2f6f8c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/3f4f909b-7100-4fce-a450-fc107e48f851/user_cropped_screenshot_0845020f08044aa790422c726c2f6f8c_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/451aea20-2d44-498c-b1ef-c04a16195be7/user_cropped_screenshot_bf5bd7d019b64de59e84a8d298db49a8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/451aea20-2d44-498c-b1ef-c04a16195be7/user_cropped_screenshot_bf5bd7d019b64de59e84a8d298db49a8_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>With <strong>Agent mode</strong> active, copy and paste the following task into the Agentic Sidebar session window. This is the analysis and planning prompt for the entire finance dashboard.</p>
+<div class="admonition warning">
+<p><code>Analyze this repository as the starting point for a new React-based finance analytics lab. Propose an implementation plan for a market dashboard application that tracks IBM and up to four competitors using Yahoo Finance data. The application should present three time-window views: current day, last 7 days, and last quarter. Recommend a practical architecture including source folders, React component boundaries, data service abstractions, charting approach, state management strategy, error handling, test strategy, and local validation steps. Also explain how the implementation should support later GitHub-driven feature evolution through issues and pull requests.</code></p>
+</div>
+<p>With the prompt entered, hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> or press the <strong>Send</strong> button to the right of the chat interface.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/cc5d5cfc-3c64-44ff-bf93-5b6891a26128/user_cropped_screenshot_83f19bab96b64d44a638039b9d1858ae_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/cc5d5cfc-3c64-44ff-bf93-5b6891a26128/user_cropped_screenshot_83f19bab96b64d44a638039b9d1858ae_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>Bob will explore the repository, then produce a <strong>rich HTML implementation plan</strong>. The Agentic Sidebar will summarize the key architecture decisions: source layout, component boundaries, data service, charting, state management, error handling, test strategy, and GitHub evolution model.</p>
+<ul>
+<li>Click <strong>Open</strong> on the <strong>Market Dashboard — Implementation Plan</strong> report to review the full plan in the IDE.</li>
+<li>The generated plan opens directly inside the Bob IDE as a self-contained HTML report. It covers the application overview, source folder layout, component boundaries, data-service architecture, and the GitHub evolution model that <strong><a href="https://pages.github.ibm.com/cdbienko/bob-sdlc/evolve-1/" target="_blank">Part 2 | Evolve</a></strong> will build on.</li>
+<li>Scroll through the report and confirm that the plan matches the workshop goal before moving on. This is the last checkpoint before Bob starts writing code.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/f8b06c84-7fe4-4c8d-b9a6-087d99fb851b/user_cropped_screenshot_c3eb8de36d4d4628880e7293e25ac087_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/f8b06c84-7fe4-4c8d-b9a6-087d99fb851b/user_cropped_screenshot_c3eb8de36d4d4628880e7293e25ac087_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/b5d7f65f-4d19-48e8-9fc6-010a87ab1483/user_cropped_screenshot_83083752f77b4da4bd8a2ecab31bc11e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/b5d7f65f-4d19-48e8-9fc6-010a87ab1483/user_cropped_screenshot_83083752f77b4da4bd8a2ecab31bc11e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>With the plan reviewed, ask Bob to scaffold the application. Copy and paste the following prompt into the Agentic Sidebar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Create a simple React application structure for this repository. Include a dashboard page, reusable chart card components, a finance data service layer, and a clean folder layout suitable for future enhancements.
+</code></pre></div>
+<p>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to submit the task for execution within the Agentic Sidebar.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/26cc52c7-8eee-4042-b36a-42f5f9e66f10/user_cropped_screenshot_1c62961f5ce9490fb359cfc2bed0e444_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/26cc52c7-8eee-4042-b36a-42f5f9e66f10/user_cropped_screenshot_1c62961f5ce9490fb359cfc2bed0e444_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>After submitting your scaffolding request, Bob will first re-read the implementation plan and generate a detailed execution roadmap presented as a <strong>Todo List</strong>.</p>
+<ul>
+<li><strong>Review</strong> the proposed plan carefully to ensure it aligns with the folder layout, component boundaries, and validation strategy from the plan</li>
+<li>Once the plan has been reviewed, click <strong>Approve todo tools for task</strong></li>
+</ul>
+<div class="admonition note">
+<p>Bob will begin executing the scaffolding workflow. During implementation, Bob may request approval before performing certain actions such as creating files, modifying source code, running build commands, executing tests, or installing dependencies. <strong>Review these requests and approve them as needed</strong>.</p>
+</div>
+<p>
+Bob will generate an <strong>Update Todo List</strong> with the following (or similar) sub-tasks:</p>
+<table>
+<thead>
+<tr>
+<th>TASK</th>
+<th>OBJECTIVES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sub-Task 1</strong></td>
+<td>Scaffold React app with Vite + TypeScript</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 2</strong></td>
+<td>Create constants, types, and mock data</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 3</strong></td>
+<td>Implement data service layer</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 4</strong></td>
+<td>Implement custom hooks</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 5</strong></td>
+<td>Build layout components</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 6</strong></td>
+<td>Build feedback components</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 7</strong></td>
+<td>Build card components</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 8</strong></td>
+<td>Build chart components</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 9</strong></td>
+<td>Build view components</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 10</strong></td>
+<td>Wire up App shell, tests, and configuration</td>
+</tr>
+<tr>
+<td><strong>Sub-Task 11</strong></td>
+<td>Run local validation (lint + test + build)</td>
+</tr>
+</tbody>
+</table>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/1a0302c2-65df-4bfe-b948-c9f7598cdd31/user_cropped_screenshot_fddba44717e14991aef4aae54bc5487b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/1a0302c2-65df-4bfe-b948-c9f7598cdd31/user_cropped_screenshot_fddba44717e14991aef4aae54bc5487b_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<p><strong>SEQUENCING THE SUB-TASKS</strong></p>
+<p>In the steps ahead, you will examine in detail what each <em>Sub-Task</em> is performing and understand the rationale for the change. With your approval, Bob will then go ahead and implement the work on your behalf.</p>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 1: Scaffold React App with Vite + TypeScript</p>
+<p>Before writing any application code, Bob initializes a new React 18 project using Vite as the build tool and TypeScript for type safety. This establishes the base <code>package.json</code>, <code>tsconfig.json</code>, <code>index.html</code>, and entry point files that every other sub-task will build on.</p>
+</div>
+<ol start="6">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 1. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 1</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="7">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 1 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 1 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>Project Initialization</strong>: Created a Vite + React 18 + TypeScript project inside <code>finance-app/</code> with base <code>package.json</code>, <code>tsconfig.json</code>, <code>index.html</code>, and <code>src/main.tsx</code> entry point.</li>
+<li><strong>Base Configuration</strong>: Established the build toolchain, dev server configuration, and TypeScript strict mode settings for the project.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 2: Create Constants, Types, and Mock Data</p>
+<p>Bob establishes the domain foundation for the application. This includes the <code>COMPANIES</code> registry (the single source of truth for tracked tickers), TypeScript types for <code>Quote</code>, <code>HistoryPoint</code>, and <code>TimeWindow</code>, and deterministic mock fixtures that let the app run offline during tests and development.</p>
+</div>
+<ol start="8">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 2. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 2</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="9">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 2 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 2 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>Company Registry</strong>: Created <code>constants/companies.ts</code> with the five tracked tickers (IBM, MSFT, ORCL, SAP, CRM) as the single source of truth.</li>
+<li><strong>Domain Types</strong>: Established <code>types/finance.ts</code> with <code>Quote</code>, <code>HistoryPoint</code>, and <code>TimeWindow</code> types used across the service, hook, and view layers.</li>
+<li><strong>Mock Fixtures</strong>: Created deterministic seeded mock data so the app can run and be tested without external network access.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 3: Implement Data Service Layer</p>
+<p>Bob creates the data-access layer with a clean separation of concerns: <code>financeService.ts</code> exposes the public API, <code>yahooAdapter.ts</code> maps raw Yahoo Finance responses to domain types, and <code>mockData.ts</code> supplies deterministic fixtures. This isolation keeps the UI independent of the data source and makes swapping providers a one-file change.</p>
+</div>
+<ol start="10">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 3. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 3</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="11">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 3 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 3 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>Public Service Interface</strong>: Created <code>services/financeService.ts</code> as the sole entry point for quote and history fetching.</li>
+<li><strong>Yahoo Adapter</strong>: Implemented <code>services/yahooAdapter.ts</code> to map raw API responses into the domain model, with null-safe handling for missing optional fields.</li>
+<li><strong>Mock/Live Seam</strong>: Wired the service to switch between live and mock data based on the <code>VITE_USE_MOCK</code> environment variable.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 4: Implement Custom Hooks</p>
+<p>Bob creates two custom React hooks that encapsulate all data-fetching state: <code>useQuotes</code> returns current-day quotes for all tracked tickers with loading and error states, and <code>useHistory</code> returns historical time-series data for a given <code>TimeWindow</code>. Views remain pure props-in / render-out, which makes them trivial to test.</p>
+</div>
+<ol start="12">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 4. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 4</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="13">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 4 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 4 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>useQuotes Hook</strong>: Created <code>hooks/useQuotes.ts</code> to fetch current-day quotes for all tracked tickers with idle, loading, error, and success states.</li>
+<li><strong>useHistory Hook</strong>: Created <code>hooks/useHistory.ts</code> to fetch historical time series scoped by <code>TimeWindow</code> ('7d' or 'quarter').</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 5: Build Layout Components</p>
+<p>Bob builds the shell components that frame the application. <code>Header</code> provides the IBM-blue banner with the app title and a refresh action, and <code>TabBar</code> provides the Day / 7 Days / Quarter navigation.</p>
+</div>
+<ol start="14">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 5. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 5</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="15">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 5 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 5 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>Header Component</strong>: Created <code>components/layout/Header.tsx</code> with IBM-blue styling, application title, last-refresh timestamp, and refresh action.</li>
+<li><strong>TabBar Component</strong>: Created <code>components/layout/TabBar.tsx</code> with the three time-window tabs and active-state styling.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 6: Build Feedback Components</p>
+<p>Bob builds the reusable feedback surfaces that every view will rely on: <code>LoadingSpinner</code> for pending states (with an ARIA role for accessibility) and <code>ErrorBanner</code> for failed fetches (with a retry action).</p>
+</div>
+<ol start="16">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 6. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 6</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="17">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 6 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 6 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>LoadingSpinner Component</strong>: Created <code>components/feedback/LoadingSpinner.tsx</code> with animated indicator and accessible ARIA role.</li>
+<li><strong>ErrorBanner Component</strong>: Created <code>components/feedback/ErrorBanner.tsx</code> with warning styling and a retry callback.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 7: Build Card Components</p>
+<p>Bob builds the reusable card primitives — <code>QuoteCard</code> renders a single ticker's price and change, and <code>QuoteCardGrid</code> arranges the cards in a responsive grid that adapts across screen sizes.</p>
+</div>
+<ol start="18">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 7. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 7</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="19">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 7 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 7 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>QuoteCard Component</strong>: Created <code>components/cards/QuoteCard.tsx</code> displaying ticker, price, change amount, change percentage, and volume with color-coded gain/loss styling.</li>
+<li><strong>QuoteCardGrid Component</strong>: Created <code>components/cards/QuoteCardGrid.tsx</code> as a responsive grid wrapper for the current-day view.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 8: Build Chart Components</p>
+<p>Bob builds the visualization components using Recharts. <code>LineChart</code> renders the 7-day trend with all tickers rebased to an index of 100 for direct comparison. <code>AreaChart</code> renders the 13-week quarterly trend. <code>ChartLegend</code> provides a color-coded company legend shared across both charts.</p>
+</div>
+<ol start="20">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 8. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 8</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="21">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 8 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 8 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>LineChart Component</strong>: Created <code>components/charts/LineChart.tsx</code> with a Recharts responsive container and normalization to a base-100 index.</li>
+<li><strong>AreaChart Component</strong>: Created <code>components/charts/AreaChart.tsx</code> for the quarterly view with a stacked area presentation.</li>
+<li><strong>ChartLegend Component</strong>: Created <code>components/charts/ChartLegend.tsx</code> with a color-coded strip identifying each tracked company.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 9: Build View Components</p>
+<p>Bob assembles the three time-window views. Each view is a thin composition of the hooks and components already built: <code>CurrentDayView</code> renders <code>QuoteCardGrid</code> via <code>useQuotes</code>, <code>WeekView</code> renders <code>LineChart</code> via <code>useHistory('7d')</code>, and <code>QuarterView</code> renders <code>AreaChart</code> via <code>useHistory('quarter')</code>.</p>
+</div>
+<ol start="22">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 9. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 9</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="23">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 9 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 9 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>CurrentDayView</strong>: Created <code>views/CurrentDayView.tsx</code> composing quote cards via <code>useQuotes</code> with loading and error surfaces.</li>
+<li><strong>WeekView</strong>: Created <code>views/WeekView.tsx</code> rendering the rebased line chart via <code>useHistory('7d')</code>.</li>
+<li><strong>QuarterView</strong>: Created <code>views/QuarterView.tsx</code> rendering the quarterly area chart via <code>useHistory('quarter')</code>.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 10: Wire Up App Shell, Tests, and Configuration</p>
+<p>Bob wires everything together in <code>App.tsx</code> — the shell composes the Header, TabBar, active view, and an ErrorBoundary. Bob then adds unit tests for the data adapter, mock fixtures, and one card component, plus configuration files (ESLint, <code>.gitignore</code>, <code>.env.example</code>) that the CI workflow depends on.</p>
+</div>
+<ol start="24">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 10. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 10</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="25">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 10 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 10 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>App Shell</strong>: Created <code>src/App.tsx</code> with active-view state management, ErrorBoundary wrapper, and global styles.</li>
+<li><strong>Test Suite</strong>: Added unit tests for the yahoo adapter, mock data determinism, and a QuoteCard rendering path using Testing Library and jest-dom.</li>
+<li><strong>Configuration Files</strong>: Added ESLint config, <code>.gitignore</code>, and <code>.env.example</code> documenting the <code>VITE_USE_MOCK</code> environment variable.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<div class="admonition tip">
+<p class="admonition-title">Sub-Task 11: Run Local Validation</p>
+<p>Bob runs a complete validation cycle — ESLint, the Jest test suite, and the TypeScript build — to confirm the scaffold compiles cleanly, every test passes, and no linting issues remain. This is the last gate before the app is considered scaffold-complete.</p>
+</div>
+<ol start="26">
+<li>
+<p>Within the Agentic Sidebar, you will be prompted with the following: <em><code>Ready to implement Sub-Task 11. Shall I go ahead?</code></em></p>
+<p>If you agree with the changes, type <code>Yes</code> and <span class="keys"><kbd class="key-enter">Enter</kbd></span> to approve <strong>Sub-Task 11</strong> execution.</p>
+</li>
+</ol>
+<hr>
+<ol start="27">
+<li>
+<p>Continue approving any additional requests related to Sub-Task 11 until the Agentic Sidebar chat has reported back with a summary of <em><code>Sub-Task 11 is done. Here's what has changed.</code></em></p>
+<div class="admonition quote">
+<ul>
+<li><strong>Validation Gate</strong>: Executed <code>npm run lint</code>, <code>npm test</code>, and <code>npm run build</code> to compile the application and validate all generated code.</li>
+<li><strong>Scaffold Verification</strong>: Confirmed zero lint errors, all tests passing, and a clean TypeScript build — demonstrating that the scaffold is ready to run and to be extended in the next module.</li>
+</ul>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="28">
+<li>
+<p>At this stage, all eleven sub-tasks have been completed and validated. Bob will present a full file inventory of the generated scaffold along with a <strong>Running the app locally</strong> block containing the commands you need next.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/7b795799-5d0f-4001-ad18-13b73ee42795/user_cropped_screenshot_cdb26682e3de41dc92484f397d354f1a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/7b795799-5d0f-4001-ad18-13b73ee42795/user_cropped_screenshot_cdb26682e3de41dc92484f397d354f1a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="29">
+<li>
+<p>To run the app, open a new Terminal window within the Bob IDE.</p>
+<ul>
+<li>From the menu bar, select: <strong>Terminal → New Terminal</strong> (or press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-grave">`</kbd></span>)</li>
+<li>A new console will appear at the bottom of the Bob IDE, awaiting input.</li>
+<li>Copy the instructions below (taken from the <strong>Running the app locally</strong> block), paste them into the console, and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd finance-app
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>VITE_USE_MOCK=true npm run dev
+</code></pre></div>
+<div class="admonition warning">
+<p>Offline mock mode is the safest starting point — no Yahoo Finance proxy is required.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/d7ce68ba-e99d-4a47-9cec-d042db6e5bbf/user_cropped_screenshot_2a5ce2691a6c487bab9d9085d675377c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/d7ce68ba-e99d-4a47-9cec-d042db6e5bbf/user_cropped_screenshot_2a5ce2691a6c487bab9d9085d675377c_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/08116603-70a9-4ddf-a841-21e58f2c2c72/user_cropped_screenshot_964bc2bef2184e5e847049f1496ef051_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/08116603-70a9-4ddf-a841-21e58f2c2c72/user_cropped_screenshot_964bc2bef2184e5e847049f1496ef051_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<ol start="30">
+<li>
+<p>Vite will start the dev server and print a local URL — typically <code>http://127.0.0.1:5173/</code> (or the next free port).</p>
+<ul>
+<li><strong>Open</strong> the URL reported within the console output using your web browser</li>
+<li>The Market Dashboard will load with the <strong>Current Day</strong> view selected by default, showing IBM alongside the four competitor tickers</li>
+<li>The scaffolded shell is now running end-to-end. The <strong>Last 7 Days</strong> and <strong>Last Quarter</strong> tabs are wired but still empty — those remaining views are what the next steps will fill in</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/93eb3965-7bdd-440e-8245-972cf61e53da/user_cropped_screenshot_279d696578c64349814b0bd63897972f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-31/93eb3965-7bdd-440e-8245-972cf61e53da/user_cropped_screenshot_279d696578c64349814b0bd63897972f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="iii-reviewing-the-generated-scaffold"><strong>iii. Reviewing the generated scaffold</strong></h2>
+<p>Before moving on, spend a few minutes exploring the generated project in the Explorer. Pay attention to:</p>
+<ul>
+<li>The <code>finance-app/</code> folder layout — services, hooks, components, views</li>
+<li>The mock data seam (<code>VITE_USE_MOCK</code>) that lets the app run offline</li>
+<li>The company registry in <code>constants/companies.ts</code> (the single source of truth for tracked tickers)</li>
+<li>The empty view components that <strong><a href="https://pages.github.ibm.com/cdbienko/bob-sdlc/build-1/" target="_blank">Part 1 | Build</a></strong>'s remaining steps will fill in</li>
+<li>The test files already stubbed for the data layer and one rendering path</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">BEFORE YOU MOVE ON</p>
+<p>You can continue to tinker with the scaffold if you wish — but be mindful that every prompt consumes tokens, and larger scaffolds tend to burn more than you'd expect. Your account's token budget will only reset monthly for IBMers, and trial accounts will expire once the budget is exhausted. Save exploration for after the core lab flow is complete.</p>
+</div>
+<p>Every file here traces back to a sub-task in the plan you just walked through. That traceability is what makes the codebase easy for Bob (and for you) to evolve in <strong><a href="https://pages.github.ibm.com/cdbienko/bob-sdlc/evolve-1/" target="_blank">Part 2 | Evolve</a></strong>.</p>
+<hr>
+<h2 id="iv-key-takeaways"><strong>iv. Key takeaways</strong></h2>
+<ul>
+<li>Planning first, then scaffolding sub-task by sub-task, produces a codebase that matches intent (not just plausible boilerplate)</li>
+<li>IBM Bob can turn a natural-language brief into a structured implementation plan with clear component and service boundaries</li>
+<li>Sub-task sequencing makes the scope of each generation step explicit before code is written and gives the developer a clear approval gate at every stage</li>
+<li>A mock-data seam lets the app run and be validated offline before any external integration is added</li>
+<li>Local validation (lint + tests + build) belongs inside the scaffold plan as its own sub-task</li>
+<li>Developers remain responsible for reviewing the plan, approving each sub-task, and validating the generated output</li>
+</ul>
+<p>
+The next module builds on the scaffold. In <strong><a href="https://pages.github.ibm.com/cdbienko/bob-sdlc/build-2/" target="_blank">1-2 | Building and Validating the Dashboards</a></strong>, you will use Bob to integrate Yahoo Finance data, populate the three dashboard views, add validation, and prepare a review-ready commit for GitHub delivery.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setup and registration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Setup and registration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../build-2/" class="md-footer__link md-footer__link--next" aria-label="Next: 1.2 Building and validating the dashboards">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                1.2 Building and validating the dashboards
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
